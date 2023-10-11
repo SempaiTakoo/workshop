@@ -20,11 +20,10 @@ def get_my_english_group() -> set:
     }
 
 
-def print_english_group():
-    students = get_my_english_group()
+def print_queue(students: set):
     for i in range(len(students)):
         print(f'{i + 1:>2} | {students.pop()}')
 
 
 if __name__ == '__main__':
-    print_english_group()
+    print(print_queue(get_all_students_list()))

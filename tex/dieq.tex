@@ -3,7 +3,6 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T2A]{fontenc}
 \usepackage[english,russian]{babel}
-\usepackage{graphicx}
 \usepackage{amsmath,amsfonts,amssymb}
 \setlength\parindent{24pt}
 
@@ -20,7 +19,7 @@
 
 \newpage
 
-\section{ур-я с разделяющимися переменными}
+\section{Ур-я с разделяющимися переменными}
 Общий вид:
 \par $f(x)dx = g(y)dy$.
 
@@ -55,53 +54,53 @@
 
 \subsection{Метод вариации произвольных констант}
 \textbf{Пример:}
-\par $y' - y \cdot ctgx - \sin(x) = 0$
+\par $y' - y \cdot \ctg{x} - \sin{x} = 0$
 \begin{enumerate}
     \item Убедиться, что это действительно НЛДУ1П.
-        \par $y' + (-ctgx) \cdot y = \sin(x)$
+        \par $y' + (-\ctg{x}) \cdot y = \sin{x}$
     \item Записать соответствующее однородное дифф. ур. (вместо $q(x)$ записать $0$).
-        \par $y' - y \cdot ctgx = 0$
+        \par $y' - y \cdot \ctg{x} = 0$
     \item Решить его (методом разделения переменных).
         \par $[...]$
-        \par $y = C \cdot \sin(x)$
+        \par $y = C \cdot \sin{x}$
     \item Записать фразу "Будем искать решение исходного ур-я в виде $y = ...C(x)...$".
         \par\textit{Будем искать решение исходного ур-я в виде $y = ...C(x)...$}
     \item Эту штуку (выражение справа) подставить в исходное ур-е.
-        \par $(C(x)\sin(x))' - C(x)\cos(x) - \sin(x) = 0$
-        \par $(C(x)\sin(x))' - C(x)\sin(x) \cdot ctgx - \sin(x) = 0$
-        \par $C'(x)\sin(x) + C(x)\cos(x) - C(x)\cos(x) - \sin(x) = 0$
-        \par $C'(x)\sin(x) = \sin(x)$ (на этом шаге C(x) обязательно должен пропасть)
+        \par $(C(x)\sin{x})' - C(x)\cos{x} - \sin{x} = 0$
+        \par $(C(x)\sin{x})' - C(x)\sin{x} \cdot \ctg{x} - \sin{x} = 0$
+        \par $C'(x)\sin{x} + C(x)\cos{x} - C(x)\cos{x} - \sin{x} = 0$
+        \par $C'(x)\sin{x} = \sin{x}$ (на этом шаге C(x) обязательно должен пропасть)
         \par $C'(x) = 1$
         \par $C(x) = x + C_{1}$
     \item Заглянуть в пункт 4 и записать ответ.
-        \par\textit{Ответ: $y = (x + C)\sin(x), \; C \in \mathbb{R}$}
+        \par\textit{Ответ: $y = (x + C)\sin{x}, \; C \in \mathbb{R}$}
 \end{enumerate}
 
 \subsection{Метод Бернулли}
 \textbf{Пример:}
-\par $y' - y \cdot ctgx - \sin(x) = 0$
+\par $y' - y \cdot \ctg{x} - \sin{x} = 0$
 \begin{enumerate}
     \item Убедиться, что это действительно НЛДУ1П.
-        \par $y' + (-ctgx) \cdot y = \sin(x)$
+        \par $y' + (-\ctg{x}) \cdot y = \sin{x}$
     \item Заменить $y = uv$, где $u = u(x)$, $v = v(x)$ -- пока неизвестные функции.
-        \par $(uv)' + (tgx)(uv) = \frac{1}{\cos(x)}$
-        \par $u'v + uv' + uv \cdot tgx = \frac{1}{\cos(x)}$
+        \par $(uv)' + (\tg{x})(uv) = \frac{1}{\cos{x}}$
+        \par $u'v + uv' + uv \cdot tg{x} = \frac{1}{\cos{x}}$
     \item Вынести $u$ за скобки.
-        \par $u'v + v(v' + vtgx) = \frac{1}{\cos(x)}$
+        \par $u'v + v(v' + v\tg{x}) = \frac{1}{\cos{x}}$
     \item Найти какую-то конкретную функцию $v \neq 0$, которая обнуляет выражение в скобках.
-        \par \textit{Решим $v' + vtgx = 0$}
+        \par \textit{Решим $v' + v\tg{x} = 0$}
         \par $[...]$
-        \par $v = C_{1}\cos(x)$
-        \par \textit{Берём конкретное решение при $C_{1} = 0 \; v = \cos(x)$}
+        \par $v = C_{1}\cos{x}$
+        \par \textit{Берём конкретное решение при $C_{1} = 0 \; v = \cos{x}$}
     \item Подставить подобранную функцию $v$ в ур-е из пункта 3.
-        \par $u'\cos(x) = \frac{1}{\cos(x)}$
-        \par $u = tgx + C$
+        \par $u'\cos{x} = \frac{1}{\cos{x}}$
+        \par $u = \tg{x} + C$
     \item Заглянув в пункт 2, записать ответ.
-        \par\textit{Ответ: $y = C\cos(x) + \sin(x)$}
+        \par\textit{Ответ: $y = C\cos{x} + \sin{x}$}
 \end{enumerate}
 
 
-\section{ур-е Бернулли}
+\section{Ур-е Бернулли}
 Общий вид:
 \par $y' + p(x) \cdot y = q(x) \cdot y^b$, где
 \par $b$ -- число, $b \neq 0$
@@ -130,11 +129,11 @@
 \end{enumerate}
 
 
-\section*{ур-я, допускающие понижение порядка}
+\section*{Ур-я, допускающие понижение порядка}
 Порядок -- это наибольший встречающийся порядок производной в уравнении. \\
 Например: \\
 $y' - \frac{1}{x}y = \frac{1}{x^2}$ -- дифф. ур. 1-го порядка \\
-$y'' - \sin(e^{y'''} + \frac{4}{y''}) = \frac{1}{\sqrt{y}}$ -- дифф. ур. 3-го порядка
+$y'' - \sin{(e^{y'''} + \frac{4}{y''})} = \frac{1}{\sqrt{y}}$ -- дифф. ур. 3-го порядка
 
 \section{Дифф. ур-я вида $y^{n} = f(x)$}
 \subsection{Метод n-кратного интегрирования}
@@ -189,7 +188,7 @@ $y'' - \sin(e^{y'''} + \frac{4}{y''}) = \frac{1}{\sqrt{y}}$ -- дифф. ур. 3
 \end{enumerate}
 
 
-\section{ур-е Лагранжа}
+\section{Ур-е Лагранжа}
 Общий вид ур-я Лагранжа:
 \par $y = x \cdot F(y') + G(y')$, где
 \par $F(y'), G(y')$ -- выражения, в которых нет $y, \; y'', \; y'''$ и т. д.
@@ -316,29 +315,29 @@ $y'' - \sin(e^{y'''} + \frac{4}{y''}) = \frac{1}{\sqrt{y}}$ -- дифф. ур. 3
 \section*{Ур-я, не разрешённые относительно $y'$}
 Ур-е решено относительно $y'$ $\Leftrightarrow$ $y'$ выражено через всё остальное \\
 Например: \\
-$\sin(x + y') = e^{xy'}$ -- не решено относительно $y'$.
+$\sin{x + y'} = e^{xy'}$ -- не решено относительно $y'$.
 
 \section{Ур-е вида $x = F(y')$}
 \subsection{Метод замены}
 \textbf{Пример:}
-\par $\ln(y') + \sin(y') - x = 0$
+\par $\ln{y'} + \sin{y'} - x = 0$
 \begin{enumerate}
     \item Убедиться, что это ур-е вида $x = F(y')$.
-        \par $x = \ln(y') + \sin(y')$
+        \par $x = \ln{y'} + \sin{y'}$
     \item Заменить $p = y'$.
-        \par $x = \ln(p) + \sin{p}$
+        \par $x = \ln{p} + \sin{p}$
     \item Взять дифференциал от обеих частей.
-        \par $dx = d(\ln(p) + sin(p)$
-        \par $dx = (\frac{1}{p} + \cos(p))dp$ $(*)$
+        \par $dx = d(\ln{p} + sin{p}$
+        \par $dx = (\frac{1}{p} + \cos{p})dp$ $(*)$
     \item Из замены выразить $dx$ через $dy$.
         \par $p = y'$
         \par $p = \frac{dy}{dx}$
         \par $dx = \frac{dy}{p}$ $(**)$
     \item Подставить $(**)$ в $(*)$.
-        \par $\frac{dy}{p} = (\frac{1}{p} + \cos(p))dp$
+        \par $\frac{dy}{p} = (\frac{1}{p} + \cos{p})dp$
     \item Выразить $dy$ и проинтегрировать.
-        \par $dy = (1 + \cos(p))dp$
-        \par $y = \int{(1 + p\cos(p)dp} = p + C_1 + \int{p\cos(p)dp} = p + p\sin(p) \cos(p) + C$
+        \par $dy = (1 + \cos{p})dp$
+        \par $y = \int{(1 + p\cos{p}dp} = p + C_1 + \int{p\cos{p}dp} = p + p\sin{p} \cos{p} + C$
     \item Записать ответ
         $\begin{cases}
             p \rightarrow t \\
@@ -346,15 +345,15 @@ $\sin(x + y') = e^{xy'}$ -- не решено относительно $y'$.
         \end{cases}$.
         \par\textit{Ответ:}
             $\begin{cases}
-                x = \ln(t) + \sin(t) \\
-                y = t + t\sin(t) + \cos(t) + C, \; C \in \mathbb{R}
+                x = \ln{t} + \sin{t} \\
+                y = t + t\sin{t} + \cos{t} + C, \; C \in \mathbb{R}
             \end{cases}$.
 \end{enumerate}
 
 \section{Ур-е вида $y = F(y')$}
 \subsection{Метод замены}
 \textbf{Пример:}
-\par $e^{\ln(y) - y'} = y'^2$
+\par $e^{\ln{y} - y'} = y'^2$
 \begin{enumerate}
     \item Убедиться, что это ур-е вида $y = F(y')$.
         \par $\frac{y}{e^{y'}} = y'^2$

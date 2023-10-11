@@ -1,11 +1,14 @@
-\documentclass[10pt, letter]{book}
+\documentclass[10pt, a4paper]{article}
+\usepackage[legalpaper, margin=1in]{geometry}
 \usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
 \usepackage[english,russian]{babel}
-\usepackage{graphicx} % Required for inserting images
+\usepackage{graphicx}
 \usepackage{amsmath,amsfonts,amssymb}
 \setlength\parindent{24pt}
 
-\title{Дифференциальные уравнения. Конспект семинаров}
+\title{Дифференциальные ур-я}
+\author{}
 \date{}
 
 
@@ -13,37 +16,375 @@
 
 \maketitle
 
-\section{Уравнения с разделяющимися переменными}
-Общий вид: \\
-\par $f(x)dx = g(y)dy$
+\tableofcontents 
+
+\newpage
+
+\section{ур-я с разделяющимися переменными}
+Общий вид:
+\par $f(x)dx = g(y)dy$.
 
 \subsection{Метод разделения переменных}
 \textbf{Пример:}
 \par $xy' - y = 0$
 \begin{enumerate}
-    \item \textbf{Записать $y'$ как $\frac{dy}{dx}$} \\
-        $x\frac{dy}{dx} - y = 0$ 
-    \item \textbf{В одной стороне собрать все $x$, а в другой - все} $y$ \\
-        $\frac{1}{x}dx = \frac{1}{y}dy$
-    \item \textbf{Проинтегрировать} \\
-        $\int\frac{1}{x}dx = \int\frac{1}{y}dy$ \\
-        $ln|x| + C_{1} = ln|y| + C_{2}$ \\
-        $ln|y| = ln|x| + C_{3}$
-    \item \textbf{Выразить $y$ и записать ответ} \\
-        $e^{ln|y|} = e^{ln|x| + C_{3}}$ \\
-        $|y| = |x| · e^{C_{3}}$ \\
-        $|y| = |x| · C_{4}$ \\
-        $y = x · C_{5}$ \\
-        Ответ: $y = Cx, C \in \mathbb{R}$
+    \item \textbf{Записать $y'$ как $\frac{dy}{dx}$}.
+        \par $x\frac{dy}{dx} - y = 0$ 
+    \item \textbf{В одной стороне собрать все $x$, а в другой - все} $y$.
+        \par $\frac{1}{x}dx = \frac{1}{y}dy$
+    \item \textbf{Проинтегрировать}.
+        \par $\int\frac{1}{x}dx = \int\frac{1}{y}dy$
+        \par $\ln|x| + C_{1} = \ln|y| + C_{2}$
+        \par $\ln|y| = \ln|x| + C_{3}$
+    \item \textbf{Выразить $y$ и записать ответ}.
+        \par $e^{\ln|y|} = e^{\ln|x| + C_{3}}$
+        \par $|y| = |x| \cdot e^{C_{3}}$
+        \par $|y| = |x| \cdot C_{4}$
+        \par $y = x \cdot C_{5}$
+        \par \textit{Ответ: $y = Cx, \; C \in \mathbb{R}$}
 \end{enumerate}
 
-\section{Неоднородные линейные дифф. ур. 1-го порядка (НЛДУ1П)}
-Общий вид: \\
-$y' + p(x)·y = q(x)$, где \\
-\begin{tabbing}
-    $q(x)$ обеспечивает неоднородность \\
-    $p(x), q(x)$ — заданные функции \\
-    $y = y(x)$ — искомая функция
-\end{tabbing}
+
+\section{Неоднородные линейные дифф. ур. 1-го порядка}
+Так называемый "НЛДУ1П". \\
+Общий вид:
+\par $y' + p(x) \cdot y = q(x)$, где
+\par $q(x)$ обеспечивает неоднородность,
+\par $p(x), q(x)$ -- заданные функции,
+\par $y = y(x)$ -- искомая функция.
+
+\subsection{Метод вариации произвольных констант}
+\textbf{Пример:}
+\par $y' - y \cdot ctgx - \sin(x) = 0$
+\begin{enumerate}
+    \item Убедиться, что это действительно НЛДУ1П.
+        \par $y' + (-ctgx) \cdot y = \sin(x)$
+    \item Записать соответствующее однородное дифф. ур. (вместо $q(x)$ записать $0$).
+        \par $y' - y \cdot ctgx = 0$
+    \item Решить его (методом разделения переменных).
+        \par $[...]$
+        \par $y = C \cdot \sin(x)$
+    \item Записать фразу "Будем искать решение исходного ур-я в виде $y = ...C(x)...$".
+        \par\textit{Будем искать решение исходного ур-я в виде $y = ...C(x)...$}
+    \item Эту штуку (выражение справа) подставить в исходное ур-е.
+        \par $(C(x)\sin(x))' - C(x)\cos(x) - \sin(x) = 0$
+        \par $(C(x)\sin(x))' - C(x)\sin(x) \cdot ctgx - \sin(x) = 0$
+        \par $C'(x)\sin(x) + C(x)\cos(x) - C(x)\cos(x) - \sin(x) = 0$
+        \par $C'(x)\sin(x) = \sin(x)$ (на этом шаге C(x) обязательно должен пропасть)
+        \par $C'(x) = 1$
+        \par $C(x) = x + C_{1}$
+    \item Заглянуть в пункт 4 и записать ответ.
+        \par\textit{Ответ: $y = (x + C)\sin(x), \; C \in \mathbb{R}$}
+\end{enumerate}
+
+\subsection{Метод Бернулли}
+\textbf{Пример:}
+\par $y' - y \cdot ctgx - \sin(x) = 0$
+\begin{enumerate}
+    \item Убедиться, что это действительно НЛДУ1П.
+        \par $y' + (-ctgx) \cdot y = \sin(x)$
+    \item Заменить $y = uv$, где $u = u(x)$, $v = v(x)$ -- пока неизвестные функции.
+        \par $(uv)' + (tgx)(uv) = \frac{1}{\cos(x)}$
+        \par $u'v + uv' + uv \cdot tgx = \frac{1}{\cos(x)}$
+    \item Вынести $u$ за скобки.
+        \par $u'v + v(v' + vtgx) = \frac{1}{\cos(x)}$
+    \item Найти какую-то конкретную функцию $v \neq 0$, которая обнуляет выражение в скобках.
+        \par \textit{Решим $v' + vtgx = 0$}
+        \par $[...]$
+        \par $v = C_{1}\cos(x)$
+        \par \textit{Берём конкретное решение при $C_{1} = 0 \; v = \cos(x)$}
+    \item Подставить подобранную функцию $v$ в ур-е из пункта 3.
+        \par $u'\cos(x) = \frac{1}{\cos(x)}$
+        \par $u = tgx + C$
+    \item Заглянув в пункт 2, записать ответ.
+        \par\textit{Ответ: $y = C\cos(x) + \sin(x)$}
+\end{enumerate}
+
+
+\section{ур-е Бернулли}
+Общий вид:
+\par $y' + p(x) \cdot y = q(x) \cdot y^b$, где
+\par $b$ -- число, $b \neq 0$
+
+\subsection{Метод замены}
+\textbf{Пример:}
+\par $xy' = \frac{x}{y} + y$
+\begin{enumerate}
+    \item Убедиться, что это ур-е Бернулли.
+        \par $y' - \frac{1}{x}y = y^{-1}$
+    \item Заменить $y = z^a$, где $a$ -- пока неизвестное число, $z = z(x)$ -- пока неизвестная функция.
+        \par $(z^a)' - \frac{1}{x}z^a = (z^a)^{-1}$
+        \par\fbox{$(z(x)^a)'_{x} \Rightarrow (z^a)' = az^{a - 1} \cdot z'$}
+        \par $az^{a - 1} \cdot z' - \frac{1}{x}z^a = z^{-a}$
+    \item Поделить обе части ур-я на выражение, стоящее перед $z'$.
+        \par $z' - \frac{1}{ax}z = \frac{1}{a}z^{-2a + 1}$
+    \item Подобрать число $a$ так, чтобы в правой части было $z^0$.
+        \par $-2a + 1 = 0 \Rightarrow a = 1/2$
+    \item Подобранное $a$ подставить в ур-е из пункта 3.
+        \par $z' - \frac{2}{x}z = 2$
+    \item Решить это ур-е (НЛДУ1П).
+        \par $[...]$
+        \par $z = C_{7}x^2-2x$
+    \item Заглянув в пункт 2, написать ответ.
+        \par\textit{Ответ: $y = \sqrt{Cx^2 - 2x}$}
+\end{enumerate}
+
+
+\section*{ур-я, допускающие понижение порядка}
+Порядок -- это наибольший встречающийся порядок производной в уравнении. \\
+Например: \\
+$y' - \frac{1}{x}y = \frac{1}{x^2}$ -- дифф. ур. 1-го порядка \\
+$y'' - \sin(e^{y'''} + \frac{4}{y''}) = \frac{1}{\sqrt{y}}$ -- дифф. ур. 3-го порядка
+
+\section{Дифф. ур-я вида $y^{n} = f(x)$}
+\subsection{Метод n-кратного интегрирования}
+\textbf{Пример:}
+    \par $y''' = 3x^2 + 6$
+    \par $y''  = x^3 + 6x + C_{1}$
+    \par $y'   = \frac{x^4}{4} + 3x^2 + C_{1}x + C_{2}$
+    \par $y    = \frac{x^5}{20} + x^3 + C_{4}x^2 + C_{2}x + C_{3}$
+    \par\textit{Ответ: $y = \frac{x^5}{20} + x^3 + C_{4}x^2 + C_{2}x + C_{3}$}
+
+\section{Дифф. ур-я, в которых нет $y$ без $'$ и которые содержат как минимум две производные}
+\subsection{Метод замены}
+\textbf{Пример:}
+\par $y'''' - y''' = e^x$
+\begin{enumerate}
+    \item Заменить $z = z(x) = y^{(...)}$, где $(...)$ — наименьший встречающийся порядок производной.
+        \par\textit{Замена $z = z(x) = y'''$}
+    \item Переписать ур-е через $z$.
+        \par $z' - z = e^x$
+        \par $[...]$
+        \par $z = (x + C)e^x$
+    \item Заменить обратно.
+        \par $y''' = e^x(x + C)$
+        \par\textit{Решим методом n-кратного интегрирования}
+        \par $[...]$
+        \par $y = e^x(x + C - 3) + C_{7} + C_{2}x + C_{8}x^2$
+        \par\textit{Ответ: $y = e^x(x + C - 3) + C_{7} + C_{2}x + C_{8}x^2$}
+\end{enumerate}
+
+\section{Дифф. ур-я, в которых нет $x$}
+\textbf{Пример:}
+\par $y'' \cdot y = y'^{2}$
+\subsection{Метод замены}
+\begin{enumerate}
+    \item Заменить $z = z(y) = y'$.
+        \par\textit{Введём новую функцию $z = z(y) = y'$}
+    \item Выразить через $z$ все производные, встречающиеся в уравнении.
+        \par $y' = z$
+        \par $y'' = y''_{xx} = (y'_{x})'_{x} = \frac{d(y'_{x})}{dx}  \cdot  \frac{dy}{dx} = \frac{dz}{dy}  \cdot  \frac{dy}{dx} = z' \cdot y' = z' \cdot z$
+        \par\textit{Имеем: $z' \cdot z \cdot y = z^2$ (искомая функция $z = z(y)$)}
+        \par $z' \cdot y = z$
+        \par $\frac{dz}{dy} \cdot y = z$
+        \par $\frac{dz}{z} = \frac{dy}{y}$
+        \par $\ln|z| = \ln|y| + C_{1}$
+        \par $z = C_{2}y$
+    \item Заменить обратно.
+        \par $y' = C_{2}y$
+        \par $\frac{dy}{dx} = C_{2}dx$
+        \par $\ln|y| = C_{2}x + C_{3}$
+        \par $y = e^{C_2{x}}  \cdot  C_4$
+        \par\textit{Ответ: $y = C_1e^{C_2x}, \; C_1, \; C_2 \in \mathbb{R}$}
+\end{enumerate}
+
+
+\section{ур-е Лагранжа}
+Общий вид ур-я Лагранжа:
+\par $y = x \cdot F(y') + G(y')$, где
+\par $F(y'), G(y')$ -- выражения, в которых нет $y, \; y'', \; y'''$ и т. д.
+
+\subsection{Метод замены}
+\textbf{Пример ур-е Лагранжа, не являющегося ур-ем Клеро:}
+\par $y + 3y'^2 = 2xy'$ $(*)$
+\begin{enumerate}
+    \item Убедиться, что это ур-е Лагранжа, не являющееся ур-ем Клеро.
+        \par $t = x \cdot 2y' + (-3y'^2)$
+    \item Заменить $p = p(x) = y'$.
+        \par\textit{Замена $p = p(x) = y' \Rightarrow y = 2px - 3p^2$ $(**)$}
+    \item Продифференцировать обе части.
+        \par $y' = 2p'x + 2p - 6pp'$
+    \item Заменить $y'$ на $p$.
+        \par $p = 2p'x + 2p - 6pp'$
+    \item Все слагаемые с $p'$ перенести влево, вынести за скобку $p'$, а всё остальное — вправо.
+        \par $(6p - 2x)p' = p$
+    \item Переписать $p'$ как $\frac{dp}{dx}$ и умножить обе части на $\frac{dx}{dp}$.
+        \par $(6p - 2x)\frac{dp}{dx} = p\frac{dx}{dp}$
+        \par $6p - 2x = p\frac{dx}{dp}$
+        \par\textit{$6p - 2x = px'$ (это НЛДУ1П, искомая функция $x = x(p)$)}
+    \item Рассмотреть случай (множитель при $x'$) $= 0$.
+        \begin{enumerate}
+            \item[(7а)] $p = 0$ \\
+                  $y' = 0$ \\
+                  $y = A$
+            \item[(7б)] Полученное выражение подставить в $(*)$. \\
+                  $A + 3 \cdot 0^2 = 2x \cdot 0$ \\
+                  $A = 0$
+            \item[(7в)] Первое решение дифф. ур-я. \\
+                  $y = 0$
+        \end{enumerate}
+    \item Рассмотреть случай (множитель при $x'$) $\neq 0$.
+        \begin{enumerate}
+            \item[(8а)] Поделить на $p'$. \\
+                  $6 - \frac{2x}{p} = x'$ \\
+                  $x' + \frac{2}{p}x = 6$ \\
+                  $[...]$ \\
+                  $x = 2p + \frac{B}{p^2}$
+            \item[(8б)] Полученное выражение для $x$ подставим в $(**)$. \\
+                  $y = 2p  \cdot  (2p + \frac{B}{p^2}) - 3p^2 = p^2 + \frac{2B}{p}$
+        \end{enumerate}
+    \item Записать ответ,
+        \begin{itemize}
+            \item учитывая результат 7в,
+            \item учитывая результат 8а и 8б, 
+            \item заменяя константы на $C$, 
+            \item заменяя $p$ на $x$.
+        \end{itemize}
+        \par\textit{Ответ:}
+              $\left[
+                  \begin{gathered}
+                      y = 0, \\
+                      \begin{cases}
+                          x = 2t + \frac{C}{t^2}, \\
+                          y = t^2 + \frac{2C}{t}, \; C \in \mathbb{R}
+                      \end{cases}
+                  \end{gathered}
+              \right.$.
+\end{enumerate}
+
+\section{Ур-е Клеро}
+Уравнение Клеро -- частный случай ур-я Лагранжа. \\
+Общий вид ур-я Клеро:
+\par $y = xy' + G(y')$
+
+\subsection{Метод замены}
+\textbf{Пример:}
+\par $y - y'^2 = xy'$ $(***)$
+\begin{enumerate}
+    \item[1--5.] Шаги идентичны предыдущему методу.
+    \item[6.] Рассмотреть случай (множитель при $x'$) $= 0$.
+        \begin{itemize}
+            \item[(6а)] $p' = 0$ \\
+                        $y'' = 0$ \\
+                        $y = Ax + B$
+            \item[(6б)] Подставить выражения в $(***)$ \\
+                        $Ax + B - A^2 = Ax$
+            \item[(6в)] Выразить обе константы через какую-то одну \\
+                        $\begin{cases}
+                            A = A \\
+                            B = A^2
+                        \end{cases}$
+            \item[(6г)] Записать первую серию решений ур-я \\
+                        $y = Ax + A^2$
+        \end{itemize}
+    \item[7.] Рассмотреть случай (множитель при $x'$) $\neq 0$.
+        \begin{itemize}
+            \item[(7а)] $x + 2p = 0$
+                        $x = -2p$
+            \item[(7б)] Подставим выражение в пункт 2
+                        $y = xp + p^2$
+                        $y = (-2)p + p^2$
+                        $y = -p^2$
+        \end{itemize}
+    \item[8.]   Записать ответ
+        \begin{itemize}
+            \item учитывая результат 6г,
+            \item учитывая результат 7а и 7б,
+            \item заменяя константы на $C$,
+            \item заменяя $p$ на $t$.
+        \end{itemize}
+        \par\textit{Ответ:}
+            $\left[
+              \begin{gathered}
+                  y = Cx + C^2, \; C \in \mathbb{R} \\
+                  \begin{cases}
+                      x = -2t, \\
+                      y = -t^2
+                  \end{cases}
+              \end{gathered}
+          \right.
+          \Leftrightarrow
+          \left[
+              \begin{gathered}
+                  y = Cx + C^2, \; C \in \mathbb{R} \\
+                  y = -\frac{x^2}{4}
+              \end{gathered}
+          \right.$.
+\end{enumerate}
+
+
+\section*{Ур-я, не разрешённые относительно $y'$}
+Ур-е решено относительно $y'$ $\Leftrightarrow$ $y'$ выражено через всё остальное \\
+Например: \\
+$\sin(x + y') = e^{xy'}$ -- не решено относительно $y'$.
+
+\section{Ур-е вида $x = F(y')$}
+\subsection{Метод замены}
+\textbf{Пример:}
+\par $\ln(y') + \sin(y') - x = 0$
+\begin{enumerate}
+    \item Убедиться, что это ур-е вида $x = F(y')$.
+        \par $x = \ln(y') + \sin(y')$
+    \item Заменить $p = y'$.
+        \par $x = \ln(p) + \sin{p}$
+    \item Взять дифференциал от обеих частей.
+        \par $dx = d(\ln(p) + sin(p)$
+        \par $dx = (\frac{1}{p} + \cos(p))dp$ $(*)$
+    \item Из замены выразить $dx$ через $dy$.
+        \par $p = y'$
+        \par $p = \frac{dy}{dx}$
+        \par $dx = \frac{dy}{p}$ $(**)$
+    \item Подставить $(**)$ в $(*)$.
+        \par $\frac{dy}{p} = (\frac{1}{p} + \cos(p))dp$
+    \item Выразить $dy$ и проинтегрировать.
+        \par $dy = (1 + \cos(p))dp$
+        \par $y = \int{(1 + p\cos(p)dp} = p + C_1 + \int{p\cos(p)dp} = p + p\sin(p) \cos(p) + C$
+    \item Записать ответ
+        $\begin{cases}
+            p \rightarrow t \\
+            const \rightarrow C
+        \end{cases}$.
+        \par\textit{Ответ:}
+            $\begin{cases}
+                x = \ln(t) + \sin(t) \\
+                y = t + t\sin(t) + \cos(t) + C, \; C \in \mathbb{R}
+            \end{cases}$.
+\end{enumerate}
+
+\section{Ур-е вида $y = F(y')$}
+\subsection{Метод замены}
+\textbf{Пример:}
+\par $e^{\ln(y) - y'} = y'^2$
+\begin{enumerate}
+    \item Убедиться, что это ур-е вида $y = F(y')$.
+        \par $\frac{y}{e^{y'}} = y'^2$
+        \par $y = y'^2e^{y'}$
+    \item Заменить $p = y'$.
+        \par $y = p^2e^p$
+    \item Взять дифференциал от обеих частей.
+        \par $dy = (2pe^p + p^2e^p)dp$ $(*)$
+    \item Из замены выразить $dy$ через $dx$.
+        \par $p = y'$
+        \par $p = \frac{dy}{dx}$
+        \par $dy = pdx$ $(**)$
+    \item Подставить $(**)$ в $(*)$.
+        \par $pdx = (2pe^p + p^2e^p)dp$
+    \item Выразить $dx$ и проинтегрировать.
+        \par $dx = \frac{2pe^p + pe^2}{p}dp$
+        \par $dx = (2e^p + pe^p)dp$
+        \par $x = 2\int{e^pdp} + \int{pe^pdp} = (2e^p + A) + (pe^p - e^p + B) = e^p + pe^p + C$
+        \par $\int{pe^pdp} = pe^p - \int{e^pdp} = pe^p - e^p + B$
+    \item Записать ответ
+        $\begin{cases}
+            p \rightarrow t \\
+            const \rightarrow C
+        \end{cases}$.
+        \par\textit{Ответ:}
+        $\begin{cases}
+            y = y'^2e^y, \\
+            x = te^t+e^t + C, \; C \in \mathbb{R}
+        \end{cases}$.
+\end{enumerate}
+
 
 \end{document}

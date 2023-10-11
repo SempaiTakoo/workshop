@@ -1,0 +1,49 @@
+\documentclass[10pt, letter]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath,amsfonts,amssymb}
+\setlength\parindent{24pt}
+
+\title{Дифференциальные уравнения. Конспект семинаров}
+\date{}
+
+
+\begin{document}
+
+\maketitle
+
+\section{Уравнения с разделяющимися переменными}
+Общий вид: \\
+\par $f(x)dx = g(y)dy$
+
+\subsection{Метод разделения переменных}
+\textbf{Пример:}
+\par $xy' - y = 0$
+\begin{enumerate}
+    \item \textbf{Записать $y'$ как $\frac{dy}{dx}$} \\
+        $x\frac{dy}{dx} - y = 0$ 
+    \item \textbf{В одной стороне собрать все $x$, а в другой - все} $y$ \\
+        $\frac{1}{x}dx = \frac{1}{y}dy$
+    \item \textbf{Проинтегрировать} \\
+        $\int\frac{1}{x}dx = \int\frac{1}{y}dy$ \\
+        $ln|x| + C_{1} = ln|y| + C_{2}$ \\
+        $ln|y| = ln|x| + C_{3}$
+    \item \textbf{Выразить $y$ и записать ответ} \\
+        $e^{ln|y|} = e^{ln|x| + C_{3}}$ \\
+        $|y| = |x| · e^{C_{3}}$ \\
+        $|y| = |x| · C_{4}$ \\
+        $y = x · C_{5}$ \\
+        Ответ: $y = Cx, C \in \mathbb{R}$
+\end{enumerate}
+
+\section{Неоднородные линейные дифф. ур. 1-го порядка (НЛДУ1П)}
+Общий вид: \\
+$y' + p(x)·y = q(x)$, где \\
+\begin{tabbing}
+    $q(x)$ обеспечивает неоднородность \\
+    $p(x), q(x)$ — заданные функции \\
+    $y = y(x)$ — искомая функция
+\end{tabbing}
+
+\end{document}

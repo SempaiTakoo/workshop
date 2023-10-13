@@ -40,7 +40,7 @@
         \par $|y| = |x| \cdot e^{C_{3}}$
         \par $|y| = |x| \cdot C_{4}$
         \par $y = x \cdot C_{5}$
-        \par \textit{Ответ: $y = Cx, \; C \in \mathbb{R}$}
+        \par \textit{Ответ: $y = Cx, \; C \in \mathbb{R}$.}
 \end{enumerate}
 
 
@@ -73,7 +73,7 @@
         \par $C'(x) = 1$
         \par $C(x) = x + C_{1}$
     \item Заглянуть в пункт 4 и записать ответ.
-        \par\textit{Ответ: $y = (x + C)\sin{x}, \; C \in \mathbb{R}$}
+        \par\textit{Ответ: $y = (x + C)\sin{x}, \; C \in \mathbb{R}$.}
 \end{enumerate}
 
 \subsection{Метод Бернулли}
@@ -96,7 +96,7 @@
         \par $u'\cos{x} = \frac{1}{\cos{x}}$
         \par $u = \tg{x} + C$
     \item Заглянув в пункт 2, записать ответ.
-        \par\textit{Ответ: $y = C\cos{x} + \sin{x}$}
+        \par\textit{Ответ: $y = C\cos{x} + \sin{x}$.}
 \end{enumerate}
 
 
@@ -125,7 +125,7 @@
         \par $[...]$
         \par $z = C_{7}x^2-2x$
     \item Заглянув в пункт 2, написать ответ.
-        \par\textit{Ответ: $y = \sqrt{Cx^2 - 2x}$}
+        \par\textit{Ответ: $y = \sqrt{Cx^2 - 2x}$.}
 \end{enumerate}
 
 
@@ -160,7 +160,7 @@ $y'' - \sin{(e^{y'''} + \frac{4}{y''})} = \frac{1}{\sqrt{y}}$ -- дифф. ур.
         \par\textit{Решим методом n-кратного интегрирования}
         \par $[...]$
         \par $y = e^x(x + C - 3) + C_{7} + C_{2}x + C_{8}x^2$
-        \par\textit{Ответ: $y = e^x(x + C - 3) + C_{7} + C_{2}x + C_{8}x^2$}
+        \par\textit{Ответ: $y = e^x(x + C - 3) + C_{7} + C_{2}x + C_{8}x^2$.}
 \end{enumerate}
 
 \section{Дифф. ур-я, в которых нет $x$}
@@ -184,7 +184,7 @@ $y'' - \sin{(e^{y'''} + \frac{4}{y''})} = \frac{1}{\sqrt{y}}$ -- дифф. ур.
         \par $\frac{dy}{dx} = C_{2}dx$
         \par $\ln|y| = C_{2}x + C_{3}$
         \par $y = e^{C_2{x}}  \cdot  C_4$
-        \par\textit{Ответ: $y = C_1e^{C_2x}, \; C_1, \; C_2 \in \mathbb{R}$}
+        \par\textit{Ответ: $y = C_1e^{C_2x}, \; C_1, \; C_2 \in \mathbb{R}$.}
 \end{enumerate}
 
 
@@ -327,7 +327,7 @@ $\sin{x + y'} = e^{xy'}$ -- не решено относительно $y'$.
     \item Заменить $p = y'$.
         \par $x = \ln{p} + \sin{p}$
     \item Взять дифференциал от обеих частей.
-        \par $dx = d(\ln{p} + sin{p}$
+        \par $dx = d(\ln{p} + sin{p})$
         \par $dx = (\frac{1}{p} + \cos{p})dp$ $(*)$
     \item Из замены выразить $dx$ через $dy$.
         \par $p = y'$
@@ -384,6 +384,120 @@ $\sin{x + y'} = e^{xy'}$ -- не решено относительно $y'$.
             x = te^t+e^t + C, \; C \in \mathbb{R}
         \end{cases}$.
 \end{enumerate}
+
+
+\section{Однородные дифф. ур-я}
+Однородным называют ур-е вида $y' = F(\frac{y}{x})$. \\
+Не путать с НЛДУ1П -- ур-ем вида $y' + p(x)y = q(x)$
+
+\subsection{Метод замены $y = x \cdot u$}
+\textbf{Пример:}
+\par $xy' - y - xe^{\frac{y}{x}} = 0$
+\begin{enumerate}
+    \item Убедиться, что это ур-е вида $y' = F(\frac{y}{x})$.
+        \par $xy' = xe^{\frac{y}{x}} + y$
+        \par $y' = e^{\frac{y}{x}} + \frac{y}{x}$
+    \item Заменить $y = x \cdot u$, где $u = u(x)$.
+        \par\textit{Замена $y = x \cdot u$}
+        \par $(xu)' = e^u + u$
+        \par $u + xu' = e^u + u$
+        \par $xu' = e^u$
+    \item Решить полученное ур-е относительно $u = u(x)$ (методом разделения переменных).
+        \par $x\frac{du}{dx} = e^u$
+        \par $\frac{1}{e^u}du = \frac{1}{x}dx$
+        \par $\int{\frac{1}{e^u}du} = \int{\frac{1}{x}dx}$
+        \par $-\frac{1}{e^u} = \ln{|x|} + C_1$
+        \par $e^{-u} = C_2 - \ln{|x|}$
+        \par $\ln{e^{-u}} = \ln{(C_2 - \ln{|x|)}}$
+        \par $u = -\ln{C_2 - \ln{|x|}}$
+    \item Заменить обратно и записать ответ.
+        \par\textit{Ответ: $y = -x\ln{(C - \ln{|x|})}, \; C \in \mathbb{R}$.}
+\end{enumerate}
+
+
+\section{Ур-е вида  $y' = F(\frac{a_1x + b_1y + c_1}{a_2x + b_2y + c_2})$}
+Данный тип ур-я делится на 2 подтипа:
+\begin{enumerate}
+    \item[(12а)] Если $a_1x + b_1y$ и $a_2x + b_2y$ пропорциональны.
+    \item[(12б)] Если $a_1x + b_1y$ и $a_2x + b_2y$ непропорциональны.
+\end{enumerate}
+
+\subsection{Метод решения подтипа 12а}
+\textbf{Пример:}
+\par $(x - 2y + 3)dx = (-2x  + 4y + 8)dy$
+\begin{enumerate}
+    \item Убедиться, что это ур-е подтипа 12а.
+        \par $y' = \frac{x - 2y + 3}{-2x + 4y + 8}$ $(*)$
+        \par $F(t) = t$
+        \par \begin{tabular}{c c c}
+             $a_1 =  1$  & $b_1 = 2$ & $c_1 = 3$  \\
+             $a_2 = -2$ & $b_2 = 4$ & $c_2 = 8$ 
+        \end{tabular}
+    \item Заменить $z = z(x) =$ \textit{[одному из этих членов $a_1x + b_1y$ или $a_2x + b_2y$]}.
+        \par $z = z(x) = x - 2y$
+    \item Выразить отсюда $y$ и продифференцировать по $x$.
+        \par $y = \frac{x}{2} - \frac{z}{2}$
+        \par $y' = \frac{1}{2} - \frac{z'}{2}$ 
+    \item В ур-и $(*)$ из пункта 1 заменить левую и правую часть.
+        \par\textit{$\frac{1}{2} - \frac{z'}{2} = \frac{z + 3}{-2z + 8}$ -- искомая функция $z = z(x)$}
+    \item Решить полученное ДУ (заведомо пройдёт метод разделения переменных).
+        \par $[...]$
+        \par\textit{$\frac{1}{4}(2z - 1 - 7\ln{|2z - 1|}) = x + C_1$ -- решение в неявном виде}
+    \item Заменить обратно и записать ответ.
+        \par $\frac{1}{4}(2x - 4y - 1 - 7\ln{|2x - 4y - 1|}) = x + C_1$
+        \par\textit{Ответ: $\frac{x}{2} + y + \frac{7}{4}\ln{|2x - 4y - 1|} = C, \; C \in \mathbb{R}$.}
+\end{enumerate}
+
+\subsection{Метод решения подтипа 12б}
+\textbf{Пример:}
+\par $(x - y - 1)dx + (x + 2y - 4)dy = 0$
+\begin{enumerate}
+    \item Убедиться, что это ур-е подтипа 12б.
+        \par $y' = \frac{x - y - 1}{-x - 2y + 4}$ $(*)$
+        \par $F(t) = t$
+        \par \begin{tabular}{c c c}
+             $a_1 =  1$ & $b_1 = -1$ & $c_1 = 1$  \\
+             $a_2 = -1$ & $b_2 = -2$ & $c_2 = 4$ 
+        \end{tabular}
+    \item Записать и решить систему $\begin{cases}
+                                        \textit{Числитель}$ = 0$ \\
+                                        \textit{Знаменатель}$ = 0$ \\
+                                     \end{cases}$ и обозначить решение через $x_0$ и $y_0$.
+        \par$\begin{cases}
+                x - y - 1 = 0 \\
+                -x - 2y + 4 = 0
+            \end{cases}$
+            $\begin{cases}
+                x = 2 \\
+                y = 1
+            \end{cases}$
+            $\Rightarrow \; x_0 = 2, \; y_0 = 1$
+    \item Заменить $\begin{cases}
+                        x = u + x_0 \\
+                        y = v + y_0
+                    \end{cases}$, где $u, v$ -- новые переменные и $v = v(u)$.
+        \par$\begin{cases}
+                x = u + 2 \\
+                y = v + 1
+            \end{cases}$
+    \item Подставить это в ур-е $(*)$ из пункта 1.
+        \par\textit{Левая часть $ = y' =  \frac{dy}{dx} = \frac{d(v + 1)}{d(u + 2)} = \frac{dv}{du} = v'_u$} 
+        \par\textit{Правая часть $ = \frac{u + 2 - v - 1 - 1}{-u - 2 - 2v - 2 + 4} = \frac{u - v}{-u - 2v}$}
+        \par\textbf{Если в числителе и знаменателе не исчезли свободные члены, ищи ошибку!}
+        \par\textit{Приходим к ур-ю}
+        \par $v' = \frac{u - v}{-u - 2v}$
+    \item Решить это ДУ, разделив числитель и знаменатель на $u$ и рассмотрев как ур-е вида $v' = F(\frac{v}{u})$).
+        \par $v' = \frac{1 - \frac{v}{u}}{-1 - 2\frac{u}{v}}$
+        \par $[...]$
+        \par\textit{$...u...v... = ...u...v...$ -- решение в неявном виде}
+    \item Заменить обратно и записать ответ.
+        \par$\begin{cases}
+            u = x - 2 \\
+            v = y - 1
+            \end{cases}$
+        \par\textit{Ответ: $...(x - 2)...(y - 1)... = ...(x - 2)...(y - 1)...$.}
+\end{enumerate}
+
 
 
 \end{document}

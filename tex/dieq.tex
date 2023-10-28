@@ -4,6 +4,7 @@
 \usepackage[T2A]{fontenc}
 \usepackage[english,russian]{babel}
 \usepackage{amsmath,amsfonts,amssymb}
+\usepackage{hyperref}
 \setlength\parindent{24pt}
 
 \title{Дифференциальные уравнения}
@@ -86,7 +87,7 @@
         \par $(uv)' + (\tg{x})(uv) = \frac{1}{\cos{x}}$
         \par $u'v + uv' + uv \cdot tg{x} = \frac{1}{\cos{x}}$
     \item Вынести $u$ за скобки.
-        \par $u'v + v(v' + v\tg{x}) = \frac{1}{\cos{x}}$
+        \par $u'v + u(v' + v\tg{x}) = \frac{1}{\cos{x}}$
     \item Найти какую-то конкретную функцию $v \neq 0$, которая обнуляет выражение в скобках.
         \par \textit{Решим $v' + v\tg{x} = 0$}
         \par $[...]$
@@ -380,8 +381,8 @@ $\sin{x + y'} = e^{xy'}$ -- не решено относительно $y'$.
         \end{cases}$.
         \par\textit{Ответ:}
         $\begin{cases}
-            y = y'^2e^y, \\
-            x = te^t+e^t + C, \; C \in \mathbb{R}
+            y = t^2e^t, \\
+            x = te^t - e^t + C, \; C \in \mathbb{R}
         \end{cases}$.
 \end{enumerate}
 

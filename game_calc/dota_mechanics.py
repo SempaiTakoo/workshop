@@ -1,53 +1,96 @@
-'''Модуль вычислений механик Dota 2.'''
+'''Dota 2 mechanics computing module.'''
 
 from dataclasses import dataclass
+from typing import List, Optional
+from math import prod
 
 
 @dataclass
 class ArcticBurnParams:
-    '''Параметры способности arctic burn.'''
-    periodic_damage: float = 0.1
-    duration: int = 8
-    slow: float = 0.4
-    magic_damage_multiplier: float = 1
+    '''Arctic burn params.'''
+
+    dmg_per_sec: float = 0.1
+    debuff_duration: int = 8
+    movespeed_slow: float = 0.4
 
 
 @dataclass
-class HeroParams:
-    '''Параметры героя и эффекты на нём.'''
-    health: int = 100
-    health_regen: float = 0
-    magic_resist: float = 0.25
+class Hero:
+    '''Hero params and spells.'''
 
+    intelligence: int = 0
+    health: int = 0
+    armor: int = 0
+    mgc_dmg_mult: float = 1
+    mgc_resist_mult: float = 0.0
+    mgc_resist: float = 0.0
+    negation_mult: float = 0
 
-# def magic_damage_multiplier(hero_params: HeroParams) -> float:
-#     '''Вычисляет коэффициент исходящего магического урона.'''
-#     result = (1 - self.magic_resist_negation_multipler
-#               * (0.25 + self.intelligence * 0.001))
-#     if self.magic_resist_modifiers is None:
-#         return result
-#     for magic_resist_modifier in self.magic_resist_modifiers:
-#         result *= 1 - magic_resist_modifier
-#     return result
+    def set_mgc_dmg_mult(self,
+                         mgc_dmg_bonuses: Optional[List[float]] = None,
+                         etherial_bonuses: Optional[List[float]] = None,
+                         ) -> None:
+        '''Calculates the mgc dmg multiplier.'''
+        mgc_increase_mults: List[float] = []
+        if mgc_dmg_bonuses is not None:
+            mgc_increase_mults = [1 + bonus
+                                  for bonus in mgc_dmg_bonuses]
+        if etherial_bonuses is not None:
+            mgc_increase_mults.append(1 + max(etherial_bonuses))
+        self.mgc_dmg_mult = prod(mgc_increase_mults)
 
+    def set_mgc_resist_mult(self,
+                            mgc_resist_bonuses: Optional[List[float]] = None,
+                            negation_mult: float = 0
+                            ) -> None:
+        '''TODO'''
+        mgc_resist_mults: List[float] = []
+        if mgc_resist_bonuses is not None:
+            mgc_resist_mults = [1 - bonus for bonus in mgc_resist_bonuses]
+        self.mgc_resist_mult = ((1 - (0.25 + 0.001 * self.intelligence)
+                                * (1 - negation_mult))
+                                * prod(mgc_resist_mults))
+        self.mgc_resist = 1 - self.mgc_resist_mult
 
-def arctic_burn_damage(spell_params: ArcticBurnParams,
-                       enemy_params: HeroParams) -> float:
-    '''Вычисляет количество исходящего урона от способности.'''
-    cur_hp: float = enemy_params.health
-    result: float = 0.0
-    for _ in range(spell_params.duration):
-        damage_per_tick = (cur_hp
-                           * spell_params.periodic_damage
-                           * (1 - enemy_params.magic_resist)
-                           * spell_params.magic_damage_multiplier
-                           - enemy_params.health_regen)
-        cur_hp -= damage_per_tick
-        result += damage_per_tick
-    return result
+    def set_mgc_resist(self,
+                       mgc_resist_bonuses: Optional[List[float]] = None,
+                       ) -> None:
+        '''TODO'''
+        if mgc_resist_bonuses is None:
+            return
+        self.set_mgc_resist_mult(mgc_resist_bonuses)
+        self.mgc_resist_mult = 1 - self.mgc_dmg_mult
+
+    def get_arctic_burn_dmg(self,
+                            enemy_hero,
+                            spell_params: ArcticBurnParams
+                            ) -> float:
+        '''Calculates arctic burn dmg.'''
+        total: float = 0
+        cur_health: float = float(self.health)
+        for _ in range(spell_params.debuff_duration):
+            cur_dmg = (cur_health
+                       * spell_params.dmg_per_sec
+                       * enemy_hero.mgc_dmg_mult
+                       * self.mgc_resist_mult)
+            cur_health -= cur_dmg
+            total += cur_dmg
+        return total
 
 
 if __name__ == '__main__':
-    spell_parameters = ArcticBurnParams()
-    enemy_parameters = HeroParams()
-    print(arctic_burn_damage(spell_parameters, enemy_parameters))
+    wyvern = Hero()
+    wyvern.set_mgc_dmg_mult([0.18, 0.12])
+    print(f'mgc_dmg_mult = {wyvern.mgc_dmg_mult}')
+
+    cm = Hero(health=4738, intelligence=128)
+    cm.set_mgc_resist_mult(negation_mult=0)
+    print(f'mgc_resist = {cm.mgc_resist}')
+    print(f'mgc_resist_mult = {cm.mgc_resist_mult}')
+
+    arctic_burn_params = ArcticBurnParams()
+
+    damage = cm.get_arctic_burn_dmg(wyvern, arctic_burn_params)
+    print(f'arctic_burn_dmg = {damage}')
+    print(f'hp after dmg    = {cm.health - damage}')
+    print(damage / cm.health)

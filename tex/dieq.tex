@@ -106,7 +106,7 @@
 \par $y' + p(x) \cdot y = q(x) \cdot y^b$, где
 \par $b$ -- число, $b \neq 0$
 
-\subsection{Метод замены}
+\subsection{Метод замены $y = z^a$}
 \textbf{Пример:}
 \par $xy' = \frac{x}{y} + y$
 \begin{enumerate}
@@ -146,7 +146,7 @@ $y'' - \sin{(e^{y'''} + \frac{4}{y''})} = \frac{1}{\sqrt{y}}$ -- дифф. ур.
     \par\textit{Ответ: $y = \frac{x^5}{20} + x^3 + C_{4}x^2 + C_{2}x + C_{3}$}
 
 \section{Дифф. уравнения, в которых нет $y$ без $'$ и которые содержат как минимум две производные}
-\subsection{Метод замены}
+\subsection{Метод замены $z = z(x) = y^{\min}$}
 \textbf{Пример:}
 \par $y'''' - y''' = e^x$
 \begin{enumerate}
@@ -167,7 +167,7 @@ $y'' - \sin{(e^{y'''} + \frac{4}{y''})} = \frac{1}{\sqrt{y}}$ -- дифф. ур.
 \section{Дифф. уравнения, в которых нет $x$}
 \textbf{Пример:}
 \par $y'' \cdot y = y'^{2}$
-\subsection{Метод замены}
+\subsection{Метод замены $z = z(y) = y'$}
 \begin{enumerate}
     \item Заменить $z = z(y) = y'$.
         \par\textit{Введём новую функцию $z = z(y) = y'$}
@@ -194,7 +194,7 @@ $y'' - \sin{(e^{y'''} + \frac{4}{y''})} = \frac{1}{\sqrt{y}}$ -- дифф. ур.
 \par $y = x \cdot F(y') + G(y')$, где
 \par $F(y'), G(y')$ -- выражения, в которых нет $y, \; y'', \; y'''$ и т. д.
 
-\subsection{Метод замены}
+\subsection{Метод замены $p = p(x) = y'$}
 \textbf{Пример уравнение Лагранжа, не являющегося уравнением Клеро:}
 \par $y + 3y'^2 = 2xy'$ $(*)$
 \begin{enumerate}
@@ -209,7 +209,7 @@ $y'' - \sin{(e^{y'''} + \frac{4}{y''})} = \frac{1}{\sqrt{y}}$ -- дифф. ур.
     \item Все слагаемые с $p'$ перенести влево, вынести за скобку $p'$, а всё остальное — вправо.
         \par $(6p - 2x)p' = p$
     \item Переписать $p'$ как $\frac{dp}{dx}$ и умножить обе части на $\frac{dx}{dp}$.
-        \par $(6p - 2x)\frac{dp}{dx} = p\frac{dx}{dp}$
+        \par $(6p - 2x)\frac{dp}{dx} = p$
         \par $6p - 2x = p\frac{dx}{dp}$
         \par\textit{$6p - 2x = px'$ (это НЛДУ1П, искомая функция $x = x(p)$)}
     \item Рассмотреть случай (множитель при $x'$) $= 0$.
@@ -257,7 +257,7 @@ $y'' - \sin{(e^{y'''} + \frac{4}{y''})} = \frac{1}{\sqrt{y}}$ -- дифф. ур.
 Общий вид уравнения Клеро:
 \par $y = xy' + G(y')$
 
-\subsection{Метод замены}
+\subsection{Метод замены $p = p(x) = y'$}
 \textbf{Пример:}
 \par $y - y'^2 = xy'$ $(***)$
 \begin{enumerate}
@@ -319,7 +319,7 @@ $y'' - \sin{(e^{y'''} + \frac{4}{y''})} = \frac{1}{\sqrt{y}}$ -- дифф. ур.
 $\sin{x + y'} = e^{xy'}$ -- не решено относительно $y'$.
 
 \section{Уравнение вида $x = F(y')$}
-\subsection{Метод замены}
+\subsection{Метод замены $p = y'$}
 \textbf{Пример:}
 \par $\ln{y'} + \sin{y'} - x = 0$
 \begin{enumerate}
@@ -352,7 +352,7 @@ $\sin{x + y'} = e^{xy'}$ -- не решено относительно $y'$.
 \end{enumerate}
 
 \section{Уравнение вида $y = F(y')$}
-\subsection{Метод замены}
+\subsection{Метод замены $p = y'$}
 \textbf{Пример:}
 \par $e^{\ln{y} - y'} = y'^2$
 \begin{enumerate}

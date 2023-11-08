@@ -1,7 +1,7 @@
 \documentclass[10pt, a4paper]{article}
-\usepackage[legalpaper, margin=1in]{geometry}
+\usepackage[a4paper, total={6in, 8in}]{geometry}
 \usepackage[utf8]{inputenc}
-\usepackage[T2A]{fontenc}
+\usepackage[T1, T2A]{fontenc}
 \usepackage[english,russian]{babel}
 \usepackage{amsmath,amsfonts,amssymb}
 \usepackage{hyperref}
@@ -41,7 +41,7 @@
         \par $|y| = |x| \cdot e^{C_{3}}$
         \par $|y| = |x| \cdot C_{4}$
         \par $y = x \cdot C_{5}$
-        \par \textit{Ответ: $y = Cx, \; C \in \mathbb{R}$.}
+        \par \textit{Ответ: $y = Cx,\;C \in \mathbb{R}$.}
 \end{enumerate}
 
 
@@ -74,7 +74,7 @@
         \par $C'(x) = 1$
         \par $C(x) = x + C_{1}$
     \item Заглянуть в пункт 4 и записать ответ.
-        \par\textit{Ответ: $y = (x + C)\sin{x}, \; C \in \mathbb{R}$.}
+        \par\textit{Ответ: $y = (x + C)\sin{x},\;C \in \mathbb{R}$.}
 \end{enumerate}
 
 \subsection{Метод Бернулли}
@@ -92,7 +92,7 @@
         \par \textit{Решим $v' + v\tg{x} = 0$}
         \par $[...]$
         \par $v = C_{1}\cos{x}$
-        \par \textit{Берём конкретное решение при $C_{1} = 0 \; v = \cos{x}$}
+        \par \textit{Берём конкретное решение при $C_{1} = 0\;v = \cos{x}$}
     \item Подставить подобранную функцию $v$ в уравнение из пункта 3.
         \par $u'\cos{x} = \frac{1}{\cos{x}}$
         \par $u = \tg{x} + C$
@@ -185,14 +185,14 @@ $y'' - \sin{(e^{y'''} + \frac{4}{y''})} = \frac{1}{\sqrt{y}}$ -- дифф. ур.
         \par $\frac{dy}{dx} = C_{2}y$
         \par $\ln|y| = C_{2}x + C_{3}$
         \par $y = e^{C_2{x}}  \cdot  C_4$
-        \par\textit{Ответ: $y = C_1e^{C_2x}, \; C_1, \; C_2 \in \mathbb{R}$.}
+        \par\textit{Ответ: $y = C_1e^{C_2x},\;C_1,\;C_2 \in \mathbb{R}$.}
 \end{enumerate}
 
 
 \section{Уравнение Лагранжа}
 Общий вид уравнения Лагранжа:
 \par $y = x \cdot F(y') + G(y')$, где
-\par $F(y'), G(y')$ -- выражения, в которых нет $y, \; y'', \; y'''$ и т. д.
+\par $F(y'), G(y')$ -- выражения, в которых нет $y,\;y'',\;y'''$ и т. д.
 
 \subsection{Метод замены $p = p(x) = y'$}
 \textbf{Пример уравнение Лагранжа, не являющегося уравнением Клеро:}
@@ -246,7 +246,7 @@ $y'' - \sin{(e^{y'''} + \frac{4}{y''})} = \frac{1}{\sqrt{y}}$ -- дифф. ур.
                       y = 0, \\
                       \begin{cases}
                           x = 2t + \frac{C}{t^2}, \\
-                          y = t^2 + \frac{2C}{t}, \; C \in \mathbb{R}
+                          y = t^2 + \frac{2C}{t},\;C \in \mathbb{R}
                       \end{cases}
                   \end{gathered}
               \right.$.
@@ -296,7 +296,7 @@ $y'' - \sin{(e^{y'''} + \frac{4}{y''})} = \frac{1}{\sqrt{y}}$ -- дифф. ур.
         \par\textit{Ответ:}
             $\left[
               \begin{gathered}
-                  y = Cx + C^2, \; C \in \mathbb{R} \\
+                  y = Cx + C^2,\;C \in \mathbb{R} \\
                   \begin{cases}
                       x = -2t, \\
                       y = -t^2
@@ -306,7 +306,7 @@ $y'' - \sin{(e^{y'''} + \frac{4}{y''})} = \frac{1}{\sqrt{y}}$ -- дифф. ур.
           \Leftrightarrow
           \left[
               \begin{gathered}
-                  y = Cx + C^2, \; C \in \mathbb{R} \\
+                  y = Cx + C^2,\;C \in \mathbb{R} \\
                   y = -\frac{x^2}{4}
               \end{gathered}
           \right.$.
@@ -337,7 +337,7 @@ $\sin{x + y'} = e^{xy'}$ -- не решено относительно $y'$.
     \item Подставить $(**)$ в $(*)$.
         \par $\frac{dy}{p} = (\frac{1}{p} + \cos{p})dp$
     \item Выразить $dy$ и проинтегрировать.
-        \par $dy = (1 + \cos{p})dp$
+        \par $dy = p(1 + \cos{p})dp$
         \par $y = \int{(1 + p\cos{p}dp} = p + C_1 + \int{p\cos{p}dp} = p + p\sin{p} \cos{p} + C$
     \item Записать ответ
         $\begin{cases}
@@ -347,7 +347,7 @@ $\sin{x + y'} = e^{xy'}$ -- не решено относительно $y'$.
         \par\textit{Ответ:}
             $\begin{cases}
                 x = \ln{t} + \sin{t} \\
-                y = t + t\sin{t} + \cos{t} + C, \; C \in \mathbb{R}
+                y = t + t\sin{t} + \cos{t} + C,\;C \in \mathbb{R}
             \end{cases}$.
 \end{enumerate}
 
@@ -382,7 +382,7 @@ $\sin{x + y'} = e^{xy'}$ -- не решено относительно $y'$.
         \par\textit{Ответ:}
         $\begin{cases}
             y = t^2e^t, \\
-            x = te^t - e^t + C, \; C \in \mathbb{R}
+            x = te^t - e^t + C,\;C \in \mathbb{R}
         \end{cases}$.
 \end{enumerate}
 
@@ -412,7 +412,7 @@ $\sin{x + y'} = e^{xy'}$ -- не решено относительно $y'$.
         \par $\ln{e^{-u}} = \ln{(C_2 - \ln{|x|)}}$
         \par $u = -\ln{C_2 - \ln{|x|}}$
     \item Заменить обратно и записать ответ.
-        \par\textit{Ответ: $y = -x\ln{(C - \ln{|x|})}, \; C \in \mathbb{R}$.}
+        \par\textit{Ответ: $y = -x\ln{(C - \ln{|x|})},\;C \in \mathbb{R}$.}
 \end{enumerate}
 
 
@@ -446,7 +446,7 @@ $\sin{x + y'} = e^{xy'}$ -- не решено относительно $y'$.
         \par\textit{$\frac{1}{4}(2z - 1 - 7\ln{|2z - 1|}) = x + C_1$ -- решение в неявном виде}
     \item Заменить обратно и записать ответ.
         \par $\frac{1}{4}(2x - 4y - 1 - 7\ln{|2x - 4y - 1|}) = x + C_1$
-        \par\textit{Ответ: $\frac{x}{2} + y + \frac{7}{4}\ln{|2x - 4y - 1|} = C, \; C \in \mathbb{R}$.}
+        \par\textit{Ответ: $\frac{x}{2} + y + \frac{7}{4}\ln{|2x - 4y - 1|} = C,\;C \in \mathbb{R}$.}
 \end{enumerate}
 
 \subsection{Метод решения подтипа 12б}
@@ -472,7 +472,7 @@ $\sin{x + y'} = e^{xy'}$ -- не решено относительно $y'$.
                 x = 2 \\
                 y = 1
             \end{cases}$
-            $\Rightarrow \; x_0 = 2, \; y_0 = 1$
+            $\Rightarrow\;x_0 = 2,\;y_0 = 1$
     \item Заменить $\begin{cases}
                         x = u + x_0 \\
                         y = v + y_0
@@ -531,14 +531,14 @@ $\sin{x + y'} = e^{xy'}$ -- не решено относительно $y'$.
                             \end{cases}$.
         \par
             $\begin{cases}
-                u'_x = -x^2 + y\cos{x} \; (1) \\
-                y'_y = y + \sin{x} \; (2)
+                u'_x = -x^2 + y\cos{x}\;(1) \\
+                y'_y = y + \sin{x}\;(2)
             \end{cases}$
     \item Выбрать любое уравнение и проинтегрировать по соответствующей переменной.
-        \par $(1) \; \Rightarrow \; u(x, y) = \int{(-x^2 +y\cos{x})}dx = -\frac{x^3}{3} + y\sin{x} + A(y)$
+        \par $(1)\;\Rightarrow\;u(x, y) = \int{(-x^2 +y\cos{x})}dx = -\frac{x^3}{3} + y\sin{x} + A(y)$
         \par \textit{$A(y)$ -- константа с точки зрения интегрирования по $x$}
     \item Полученное выражение подставить в другое уравнение из системы пункта 2.
-        \par $(2) \; \Rightarrow \; (-\frac{x^3}{3} + y\sin{x} + A(y))'_y = y + \sin{x}$
+        \par $(2)\;\Rightarrow\;(-\frac{x^3}{3} + y\sin{x} + A(y))'_y = y + \sin{x}$
         \par $\sin{x} + A'_y(y) = y + \sin{x}$
         \par $A(y) = \frac{y^2}{2} + C_1$
     \item Записать окончательное выражение для $u(x, y)$.
@@ -599,6 +599,38 @@ $\sin{x + y'} = e^{xy'}$ -- не решено относительно $y'$.
     \item Домножить исходное дифф. ур. на угаданный интегрирующий множитель.
         \par $(3y^2 - 2x^3)dx + (6xy - 3x^2y^2)dy = 0$
         \par \textit{Решаем как уравнение в полных дифференциалах} $[...]$
+\end{enumerate}
+
+
+\section{ОЛДУ с постоянным коэффициентом}
+
+\textbf{Пример:}
+    \par $y^{(5)} - 4y^{(4)} + 13y^{'''} = 0$
+\subsection{Метод линейных комбинаций}
+\begin{enumerate}
+    \item Записать характеристическое уравнение:
+          $y \rightarrow \lambda$, порядок производной $\rightarrow$ степень.
+        \par $\lambda^5 - 4\lambda^4 + 13\lambda^3 = 0$
+    \item Разложить левую часть на линейные множители.
+        \par $(\lambda - 3)^3(\lambda - 2 - 3i)(\lambda - 2 + 3i) = 0$
+    \item Выписать список корней и их кратности.
+        \par $\lambda_1 = 0,\;k_1 = 3$
+        \par $\lambda_2 = 2 \pm 3i,\;k_2 = 1$
+    \item Около каждого корня (или пары комплексных сопряжённых корней) выписать серию функций (или две серии функций):
+    \begin{itemize}
+        \item $\lambda = \alpha,\;k = m\;\rightarrow\;e^{\alpha x}, \;
+              xe^{\alpha x},\;x^2e^{\alpha x}, \dots,\;x^me^{\alpha x}$
+        \item $\lambda = \alpha \pm \beta i\;(\alpha \in \mathbb{R}, \beta \in \mathbb{R}, \beta > 0),\;k = m,\;\rightarrow\;$ \\
+              $(e^{\alpha x}\cos{\beta x},\;x e^{\alpha x}\cos{\beta x},\;\dots\;, x^m e^{\alpha x}\cos{\beta x}),$ \\
+              $(e^{\alpha x}\sin{\beta x},\;x e^{\alpha x}\sin{\beta x},\;\dots\;, x^m e^{\alpha x}\sin{\beta x})$
+    \end{itemize}
+        \par $\lambda_1 = 0,\;k_1 = 3\;\rightarrow \;
+             e^{0x},\;xe^{0x},\;x^2e^{0x}$
+        \par $\lambda_2 = 2 \pm 3i,\;k_2 = 1\;\rightarrow \;
+             (e^{2x}\cos{3x}),\;(e^{2x}\sin{3x})$
+    \item Записать ответ в виде линейное комбинации этих функций.
+        \par\textit{Ответ: $y = C_1 + C_2x + C_3x^2 + C_4e^{2x}\cos{3x} + C_4e^{2x}\sin{3x},\;
+                   C_1, C_2, C_3, C_4 \in \mathbb{R}$.}
 \end{enumerate}
 
 

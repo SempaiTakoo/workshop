@@ -45,8 +45,9 @@
 \end{enumerate}
 
 
-\section{Неоднородные линейные дифф. ур. 1-го порядка}
-Так называемый "НЛДУ1П". \\
+\section{Неоднородные линейные дифф. уравнения 1-го порядка}
+Так называемые НЛДУ1П.
+\newline
 Общий вид:
 \par $y' + p(x) \cdot y = q(x)$, где
 \par $q(x)$ обеспечивает неоднородность,
@@ -487,7 +488,7 @@ $\sin{x + y'} = e^{xy'}$ -- не решено относительно $y'$.
         \par\textbf{Если в числителе и знаменателе не исчезли свободные члены, ищи ошибку!}
         \par\textit{Приходим к ур-ю}
         \par $v' = \frac{u - v}{-u - 2v}$
-    \item Решить это ДУ, разделив числитель и знаменатель на $u$ и рассмотрев как уравнение вида $v' = F(\frac{v}{u})$).
+    \item Решить это ДУ, разделив числитель и знаменатель на $u$ и рассмотрев как уравнение вида $v' = F(\frac{v}{u})$.
         \par $v' = \frac{1 - \frac{v}{u}}{-1 - 2\frac{u}{v}}$
         \par $[...]$
         \par\textit{$...u...v... = ...u...v...$ -- решение в неявном виде}
@@ -602,17 +603,16 @@ $\sin{x + y'} = e^{xy'}$ -- не решено относительно $y'$.
 \end{enumerate}
 
 
-\section{ОЛДУ с постоянным коэффициентом}
-
+\section{Однородные линейные дифф. уравнения с постоянными коэффициентами}
+Так называемый ОЛДУ с ПК.
+\newline
 \textbf{Пример:}
     \par $y^{(5)} - 4y^{(4)} + 13y^{'''} = 0$
 \subsection{Метод линейных комбинаций}
 \begin{enumerate}
-    \item Записать характеристическое уравнение:
-          $y \rightarrow \lambda$, порядок производной $\rightarrow$ степень.
+    \item Записать характеристическое уравнение: $y \rightarrow \lambda$, порядок производной $\rightarrow$ степень.
         \par $\lambda^5 - 4\lambda^4 + 13\lambda^3 = 0$
-    \item Разложить левую часть на линейные множители.
-        \par $(\lambda - 3)^3(\lambda - 2 - 3i)(\lambda - 2 + 3i) = 0$
+    \item Разложить левую часть на линейные множители. \par $(\lambda - 3)^3(\lambda - 2 - 3i)(\lambda - 2 + 3i) = 0$
     \item Выписать список корней и их кратности.
         \par $\lambda_1 = 0,\;k_1 = 3$
         \par $\lambda_2 = 2 \pm 3i,\;k_2 = 1$
@@ -633,5 +633,76 @@ $\sin{x + y'} = e^{xy'}$ -- не решено относительно $y'$.
                    C_1, C_2, C_3, C_4 \in \mathbb{R}$.}
 \end{enumerate}
 
+
+\section{Неоднородные дифф. уравнения с постоянными коэффициентами}
+Так называемые НЛДУ с ПК.
+\newline
+\textbf{Пример:}
+\par $y'' - 2y' + y = 6xe^x$
+\subsection{Метод вариаций произвольных констант}
+\begin{enumerate}
+    \item Решить соответствующее ОЛДУ и получить решение в виде $y = C_1\phi_1(x) + C_2\phi_2(x) + ... + C_n\phi_n(x)$.
+        \par $y'' - 2y' + y = 0$
+        \par $y = C_1e^x + C_2e^{-x}$
+    \item Записать фразу "Будем искать решение исходного уравнения в виде $y = ...C_1...C_2..$".
+        \par\textit{Будем искать решение исходного уравнения в виде $y = C_1(x)e^x + C_2(x)e^{-x}$}
+    \item Записать систему
+    $\begin{pmatrix}
+        \phi_{1}         & \ldots & \phi_{n} \\
+        \vdots           & \ddots & \vdots   \\
+        \phi_{1}^{(n-1)} & \ldots & \phi_{n}^{(n -1)}
+    \end{pmatrix}_{n \times n}
+    \begin{pmatrix}
+        C_1'(x) \\
+        \vdots  \\
+        C_n'(x)
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        0      \\
+        \vdots \\
+        f
+    \end{pmatrix}$, \\
+    где $f$ -- функция из правой части исходного уравнения, $n$ -- порядок исходного уравнения.
+        \par
+            $\begin{pmatrix}
+                e^x & xe^x \\
+                e^x & e^x + xe^x
+            \end{pmatrix}
+            \begin{pmatrix}
+                C_1'(x) \\
+                C_2'(x)
+            \end{pmatrix}
+            =
+            \begin{pmatrix}
+                0 \\
+                6xe^x
+            \end{pmatrix}$
+    \item Решить полученную систему, используя формулы Крамера, и найти $C_1(x), ..., C_n(x)$.
+        \par
+            $\Delta =
+            \begin{vmatrix}
+                e^x & xe^x \\
+                e^x & e^x + xe^x
+            \end{vmatrix}
+            = e^{2x}v$ \\
+            \newline $\Delta_1 =
+            \begin{vmatrix}
+                0 & xe^x \\
+                6xe^x & e^x + xe^x
+            \end{vmatrix} = -6x^2e^{2x}$ \\
+            \newline $\Delta_2 =
+            \begin{vmatrix}
+                e^x & 0 \\
+                e^x & 6xe^x
+            \end{vmatrix} = 6xe^{2x}$ \\
+            \newline $C_1'(x) = \frac{\Delta_1}{\Delta} = -6x^2$ \\
+            \newline $C_2'(x) = \frac{\Delta_2}{\Delta} = 6x$ \\
+            \newline $C_1 = \int{C_1'(x)} = -2x^3 + A$ \\
+            \newline $C_2 = \int{C_2'(x)} = 3x^2 + B$
+    \item Записать ответ, заглянув в пункт 2.
+        \par\textit{Ответ: $y = (-2x^3 + C_1)e^x + (3x^2 + C_2)xe^x, \; C_1, C_2 \in \mathbb{R}$}
+
+\end{enumerate}
 
 \end{document}

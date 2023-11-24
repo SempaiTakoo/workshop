@@ -2,9 +2,11 @@
 \usepackage[a4paper, total={6in, 8in}]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage[T1, T2A]{fontenc}
-\usepackage[english,russian]{babel}
+\usepackage{graphicx}
+\usepackage[english, russian]{babel}
 \usepackage{amsmath,amsfonts,amssymb}
 \usepackage{hyperref}
+\usepackage{enumerate}
 \setlength\parindent{24pt}
 
 \title{Дифференциальные уравнения}
@@ -22,7 +24,7 @@
 
 \section{Уравнения с разделяющимися переменными}
 Общий вид:
-\par $f(x)dx = g(y)dy$.
+\par $f(x)dx = g(y)dy$
 
 \subsection{Метод разделения переменных}
 \textbf{Пример:}
@@ -619,10 +621,10 @@ $\sin{x + y'} = e^{xy'}$ -- не решено относительно $y'$.
     \item Около каждого корня (или пары комплексных сопряжённых корней) выписать серию функций (или две серии функций):
     \begin{itemize}
         \item $\lambda = \alpha,\;k = m\;\rightarrow\;e^{\alpha x}, \;
-              xe^{\alpha x},\;x^2e^{\alpha x}, \dots,\;x^{m - 1}e^{\alpha x}$
+              xe^{\alpha x},\;x^2e^{\alpha x}, \dots,\;x^me^{\alpha x}$
         \item $\lambda = \alpha \pm \beta i\;(\alpha \in \mathbb{R}, \beta \in \mathbb{R}, \beta > 0),\;k = m,\;\rightarrow\;$ \\
-              $(e^{\alpha x}\cos{\beta x},\;x e^{\alpha x}\cos{\beta x},\;\dots\;, x^{m - 1} e^{\alpha x}\cos{\beta x}),$ \\
-              $(e^{\alpha x}\sin{\beta x},\;x e^{\alpha x}\sin{\beta x},\;\dots\;, x^{m - 1} e^{\alpha x}\sin{\beta x})$
+              $(e^{\alpha x}\cos{\beta x},\;x e^{\alpha x}\cos{\beta x},\;\dots\;, x^m e^{\alpha x}\cos{\beta x}),$ \\
+              $(e^{\alpha x}\sin{\beta x},\;x e^{\alpha x}\sin{\beta x},\;\dots\;, x^m e^{\alpha x}\sin{\beta x})$
     \end{itemize}
         \par $\lambda_1 = 0,\;k_1 = 3\;\rightarrow \;
              e^{0x},\;xe^{0x},\;x^2e^{0x}$
@@ -639,7 +641,7 @@ $\sin{x + y'} = e^{xy'}$ -- не решено относительно $y'$.
 \newline
 \textbf{Пример:}
 \par $y'' - 2y' + y = 6xe^x$
-\subsection{Метод вариации произвольных констант}
+\subsection{Метод вариаций произвольных констант}
 \begin{enumerate}
     \item Решить соответствующее ОЛДУ и получить решение в виде $y = C_1\phi_1(x) + C_2\phi_2(x) + ... + C_n\phi_n(x)$.
         \par $y'' - 2y' + y = 0$
@@ -702,7 +704,225 @@ $\sin{x + y'} = e^{xy'}$ -- не решено относительно $y'$.
             \newline $C_2 = \int{C_2'(x)} = 3x^2 + B$
     \item Записать ответ, заглянув в пункт 2.
         \par\textit{Ответ: $y = (-2x^3 + C_1)e^x + (3x^2 + C_2)xe^x, \; C_1, C_2 \in \mathbb{R}$}
-
 \end{enumerate}
+
+
+\section{Однородные линейные дифф. уравнения с постоянными коэффициентами и специальной правой частью}
+Так называемые "НЛДУ с ПК и СПЧ".
+
+\subsection{Некоторое элементы теории}
+
+\subsubsection*{Теорема о структуре решения НЛДУ с произвольными константами n-го порядка}
+Общее решение НЛДУ является суммой общего решения соответствующего ОЛДУ и частного решения НЛДУ:
+\begin{equation*}
+    y_\textup{о.н.} = y_\textup{о.о.} + y_\textup{ч.н.}
+\end{equation*}
+
+\subsubsection*{Функция специального вида}
+Функцией специального вида называется сумма слагаемых вида $Ax^ke^{\alpha x}\cos{\beta x}$ и $Ax^ke^{\alpha x}\sin{\beta x}$, ($A, \; \alpha \in \mathbb{R}, \; \beta \geq 0, \; k = 0, 1, 2...$)
+
+\subsubsection*{Диаграммы для функций специального вида}
+Для каждого слагаемого функции специального вида можно составить диаграмму: \\
+\begin{tabular}{ |c|c| }
+    \hline
+    1. $\alpha$              & коэфф. в степени $e$ \\
+    2. $\beta$               & коэфф. аргумента $\cos$ или $\sin$ \\
+    3. $k$                   & степени $x$ \\
+    4. $m$                   & максимальная степень $x$, т. е. $k_{max}$ \\
+    5. $\widetilde{\lambda}$ & $\alpha \pm \beta i$ \\
+    \hline
+\end{tabular}
+
+\textbf{Пример:}
+\par $xe^x\cos{2x} + 3x^2\sin{2x} + x^3e^x\sin{2x} + 4x^2 + 5cos{2x} - \frac{1}{2} + x\sin{2x}$ \\
+\begin{tabular}{ |c|c| }
+    \hline
+    $\alpha$              & 1 \\
+    $\beta$               & 2 \\
+    $k$                   & 1, 3 \\
+    $m$                   & 3 \\
+    $\widetilde{\lambda}$ & $1 \pm 2i$ \\
+    \hline
+\end{tabular}
+\begin{tabular}{ |c|c| }
+    \hline
+    $\alpha$              & 0 \\
+    $\beta$               & 2 \\
+    $k$                   & 2, 0, 1 \\
+    $m$                   & 2 \\
+    $\widetilde{\lambda}$ & $2i$ \\
+    \hline
+\end{tabular}
+\begin{tabular}{ |c|c| }
+    \hline
+    $\alpha$              & 0 \\
+    $\beta$               & 0 \\
+    $k$                   & 2, 0 \\
+    $m$                   & 2 \\
+    $\widetilde{\lambda}$ & 0 \\
+    \hline
+\end{tabular}
+
+\subsection{Метод поиска частного решения}
+\textbf{Пример:}
+\par $y'' - 2y' + y = x + 10e^x$
+\begin{enumerate}
+    \item Решить соответствующее ОЛДУ.
+        \par $y'' - 2y' + y = 0$
+        \par $\lambda^2 - 2\lambda + 1 = 0$
+        \par $(\lambda - 1)^2 = 0$
+        \par $\lambda = 1 \; \text{(кратность = 2)}$
+        \par $y = C_1e^x + C_2xe^x$
+    \item Записать диаграмму правой части дифф. уравнения.
+        \par
+            \begin{tabular}{ |c|c| }
+                \hline
+                $\alpha$              & 0 \\
+                $\beta$               & 0 \\
+                $k$                   & 1 \\
+                $m$                   & 1 \\
+                $\widetilde{\lambda}$ & 0 \\
+                \hline
+            \end{tabular}
+            \begin{tabular}{ |c|c| }
+                \hline
+                $\alpha$              & 1 \\
+                $\beta$               & 0 \\
+                $k$                   & 0 \\
+                $m$                   & 0 \\
+                $\widetilde{\lambda}$ & 1 \\
+                \hline
+            \end{tabular}
+    \item Добавить в каждую таблицу кратность числа $\widetilde{\lambda}$ в характеристическом уравнении из пункта 1. Это число $r$. Если $\widetilde{\lambda}$ не является корнем характеристического уравнения, то считать $r = 0$.
+        \par
+            \begin{tabular}{ |c|c| }
+                \hline
+                $\alpha$              & 0 \\
+                $\beta$               & 0 \\
+                $k$                   & 1 \\
+                $m$                   & 1 \\
+                $\widetilde{\lambda}$ & 0 \\
+                $r$                   & 0 \\
+                \hline
+            \end{tabular}
+            \begin{tabular}{ |c|c| }
+                \hline
+                $\alpha$              & 1 \\
+                $\beta$               & 0 \\
+                $k$                   & 0 \\
+                $m$                   & 0 \\
+                $\widetilde{\lambda}$ & 1 \\
+                $r$                   & 2 \\
+                \hline
+            \end{tabular}
+    \item При помощи таблиц построить общий вид частного решения НЛДУ, причём для каждой таблицы своё слагаемое:
+    \begin{equation*}
+        y_\textup{ч.н.} = x^re^{\alpha x}[(...)\cos{\beta x} + (...)\sin{\beta x}] + ...
+    \end{equation*}
+    где $r$, $\alpha$, $\beta$ -- числа из таблицы, $(...)$ -- многочлен степени $m$ с неопределёнными коэффициентами, причём все многочлены с разными коэффициентами.
+        \par
+            \begin{equation*}
+                y_\textup{ч.н.} = x^0e^{0x}[(Ax + B)\cos{0x} + (Cx + D)\sin{0x}] + x^2e^x[E\cos{0x} + F\sin{0x}] = Ax + B + Ex^2e^x
+            \end{equation*}
+    \item Подставить полученное выражение в исходное уравнение.
+        \par
+            \begin{gather*}
+                (Ax + B + Ex^{2}e^{x})'' - 2(Ax + B + Ex^{2}e^{x})' + (Ax + B + Ex^{2}e^{x}) = x + 10e^{x} \\
+                ... \\
+                2Ee^x - 2Ex + Ax - 2A + B = x + 10e^x
+            \end{gather*}
+    \item Привести подобные слагаемые.
+        \par
+            \begin{gather*}
+                2Ee^x + Ax + (B - 2A) = x + 10e^x
+            \end{gather*}
+    \item Приравнять коэффициенты в правой и левой частях и вычислить значения коэффициентов.
+        \par
+            \begin{gather*}
+                \begin{cases}
+                    2E = 10 \\
+                    A = 1 \\
+                    B - 2A = 0
+                \end{cases}
+                \begin{cases}
+                    E = 5 \\
+                    A = 1 \\
+                    B = 2
+                \end{cases}
+            \end{gather*}
+    \item Записать окончательный вид частного решения НЛДУ.
+        \par
+            \begin{gather*}
+                y_\textup{ч.н.} = x + 2 + 5x^2e^x
+            \end{gather*}
+    \item Записать ответ, используя теорему о структуре решения НЛДУ.
+        \par \textit{Ответ:} $y = C_1e^x + C_2xe^x + 5x^2e^x + x + 2, \; C_1, \; C_2 \in \mathbb{R}$
+\end{enumerate}
+
+
+\section{Однородные систему дифф. уравнений 1-го порядка}
+Так называемые "ОСДУ1П". \\
+Мы будем изучать только систему вида:
+\begin{gather*}
+    \begin{cases}
+        \dot{x_1} = a_{11}x_1 + a_{12}x_2 + ... + a_{1n}x_n \\
+        \dot{x_2} = a_{21}x_1 + a_{22}x_2 + ... + a_{2n}x_n \\
+        \dots \\
+        \dot{x_n} = a_{n1}x_1 + a_{n2}x_2 + ... + a_{nn}x_n \\
+    \end{cases}
+\end{gather*}
+где $a_{ij} \in \mathbb{R}$ -- заданные коэффициенты, $x_1 = x_1(t), \; ... \;, x_n = x_n(t)$ -- искомые функции, $t$ -- независимая переменная, $\dot{x_k} = \frac{d(x_k(t))}{dt}$.
+
+\subsection{Алгоритм решения ОСДУ1П}
+\begin{enumerate}
+    \item Записать матрицу системы, т. е. матрицу A =
+    $\begin{pmatrix}
+        a_{11} & a_{12} & ... & a_{1n} \\
+        \dots \\
+        a_{n1} & a_{n2} & ... & a_{nn} \\
+    \end{pmatrix}
+    \in \mathbb{R}^{n \times n}.$
+    \item Записать характеристический многочлен матрицы $\chi(\lambda) =
+    \begin{vmatrix}
+        a_{11} - \lambda & ... & ... \\
+        ... & a_{22} - \lambda & ... \\
+        \dots \\
+        ... & ... & a_{nn} - \lambda
+    \end{vmatrix}$
+    \item Разложить на линейные множители и выписать список корней с их кратностями. При этом могут возникнуть корни следующих четырёх типов:
+    \begin{gather*}
+        \text{Простые корни:} \\
+            \begin{cases}
+                \text{I.} \; \lambda = \alpha \; \text{кратность 1} \\
+                \text{II.} \; \lambda = \alpha \pm \beta i \; \text{оба кратности 1} \\
+            \end{cases} \\
+        \text{Кратные корни:} \\
+            \begin{cases}
+                \text{III.} \; \lambda = \alpha \; \text{кратность $m$ $\geq$ 2} \\
+                \text{IV.} \; \lambda = \alpha \pm \beta i \; \text{кратность $m$ $\geq$ 2}
+            \end{cases} \\
+        \alpha, \; \beta \in \mathbb{R}, \; \beta > 0
+    \end{gather*}
+    \item Подвергнуть "обработке" каждый корень/пару комплексно сопряжённых корней, в результате которой получится фрагмент -- столбец функций -- конечного решения системы.
+    \item Записать ответ -- линейную комбинацию с коэффициентами $C_1, \; ... \;, C_n$ всех полученных фрагментов.
+\end{enumerate}
+
+\subsection{Алгоритмы обработки разных типов корней}
+\begin{enumerate}[I.]
+    \item Пусть $\lambda = \alpha$ (кратность 1).
+        \begin{enumerate}
+            \item Найти собственный вектор $\Vec{S} \in \mathbb{R}^n$ матрицы A, соответствующий собственному значению $\lambda$.
+            \item Составить произведение $\Vec{S} \cdot e^{\lambda t}$, где $\Vec{S}$ -- найденный собственный вектор, $\lambda$ -- обрабатываемое число. Это и есть фрагмент решения.
+        \end{enumerate}
+    \item Пусть $\lambda = \alpha \pm \beta i$ (оба кратности 1).
+        \begin{enumerate}
+            \item Выбрать из пары какой-то один корень (про другой забыть навечно).
+            \item Для выбранного значения $\lambda$ найти собственный вектор $\Vec{S} \in \mathbb{C}^{n}$ матрицы А.
+            \item Составить произведение $\Vec{S} \cdot e^{\lambda t}$.
+            \item Фрагментами конечного решения являются векторы $Re(\Vec{S}e^{\lambda t})$ и $Im(\Vec{S}e^{\lambda t})$. Детали их получения -- на примерах.
+        \end{enumerate}
+\end{enumerate}
+
+
 
 \end{document}

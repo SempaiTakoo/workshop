@@ -934,52 +934,41 @@ $\sin{x + y'} = e^{xy'}$ -- не решено относительно $y'$.
             \item Записать число $N$ -- количество нулевых строк в полученной матрице. Как минимум одна нулевая строка обязана быть.
             \item Сравнить $N$ с числом $m$:
                 \begin{enumerate}
-                    \item $N = m$: \\
-                        "Приятный" случай,
-                    \item $N < m$: \\
-                        "Неприятный" случай,
-                    \item $N > m$: \\
-                        Невозможный случай.
-                \end{enumerate}
-        \end{enumerate}
-        \begin{enumerate}
-            \item Если это невозможный случай.
-                \begin{enumerate}
-                    \item Перерешать.
-                \end{enumerate}
-            \item Если это "приятный" случай.
-                \begin{enumerate}
-                    \item Из матрицы ступенчатого вида составить однородную систему уравнений с переменными $y_1, \dots, y_n$.
-                    \item Решить систему и получить ответ вида
-                    $
-                        \begin{pmatrix} y_1 \\ \vdots \\ y_n \end{pmatrix} =
-                        C_1\begin{pmatrix} \vdots \end{pmatrix}
-                        + \dots
-                        + C_m\begin{pmatrix} \vdots \end{pmatrix}
-                    $, \\
-                    где $\begin{pmatrix} \vdots \end{pmatrix}$ -- векторы высоты $n$ с конкретными числовыми координатами.
-                    \item Фрагмент корня $\lambda$ в конечном ответе будет иметь вид
-                    $
-                        [C_1\begin{pmatrix} \vdots \end{pmatrix}
-                        + \dots
-                        + C_m\begin{pmatrix} \vdots \end{pmatrix}]e^{\lambda t}
-                    $.
-                \end{enumerate}
-            \item Если это "неприятный" случай.
-                \begin{enumerate}
-                    \item Записать выражение вида
-                    $
-                        \begin{pmatrix} x_1 \\ \vdots \\ x_n \end{pmatrix} =
-                        [\begin{pmatrix} \vdots \end{pmatrix}
-                        + \begin{pmatrix} \vdots \end{pmatrix}t
-                        + \begin{pmatrix} \vdots \end{pmatrix}t^2
-                        + \dots
-                        + \begin{pmatrix} \vdots \end{pmatrix}t^{m - N}]e^{\lambda t} \; (*)
-                    $.
-                    \item Это выражение подставить в исходную систему уравнений, записанную в матричном виде.
-                    \item Продифференцировать, раскрыть скобки, привести подобные слагаемые и приравнять соответствующие коэффициенты в правой и левой части.
-                    \item Выразить все неопределённые коэффициенты системы уравнений через какие-то $m$ из них.
-                    \item Полученное выражение подставить в $(*)$ -- это и есть фрагмент корня $\lambda$ в конечном ответе.
+                    \item Если $N = m$ -- это "приятный" случай:
+                        \begin{enumerate}
+                            \item Из матрицы ступенчатого вида составить однородную систему уравнений с переменными $y_1, \dots, y_n$.
+                            \item Решить систему и получить ответ вида
+                            $
+                                \begin{pmatrix} y_1 \\ \vdots \\ y_n \end{pmatrix} =
+                                C_1\begin{pmatrix} \vdots \end{pmatrix}
+                                + \dots
+                                + C_m\begin{pmatrix} \vdots \end{pmatrix}
+                            $, \\
+                            где $\begin{pmatrix} \vdots \end{pmatrix}$ -- векторы высоты $n$ с конкретными числовыми координатами.
+                            \item Фрагмент корня $\lambda$ в конечном ответе будет иметь вид
+                            $
+                                [C_1\begin{pmatrix} \vdots \end{pmatrix}
+                                + \dots
+                                + C_m\begin{pmatrix} \vdots \end{pmatrix}]e^{\lambda t}
+                            $.
+                        \end{enumerate}
+                    \item Если $N < m$ -- это "неприятный" случай:
+                        \begin{enumerate}
+                            \item Записать выражение вида
+                            $
+                                \begin{pmatrix} x_1 \\ \vdots \\ x_n \end{pmatrix} =
+                                [\begin{pmatrix} \vdots \end{pmatrix}
+                                + \begin{pmatrix} \vdots \end{pmatrix}t
+                                + \begin{pmatrix} \vdots \end{pmatrix}t^2
+                                + \dots
+                                + \begin{pmatrix} \vdots \end{pmatrix}t^{m - N}]e^{\lambda t} \; (*)
+                            $.
+                            \item Это выражение подставить в исходную систему уравнений, записанную в матричном виде.
+                            \item Продифференцировать, раскрыть скобки, привести подобные слагаемые и приравнять соответствующие коэффициенты в правой и левой части.
+                            \item Выразить все неопределённые коэффициенты системы уравнений через какие-то $m$ из них.
+                            \item Полученное выражение подставить в $(*)$ -- это и есть фрагмент корня $\lambda$ в конечном ответе.
+                        \end{enumerate}
+                    \item Если $N > m$ -- это невозможный случай. Перерешать.
                 \end{enumerate}
         \end{enumerate}
 \end{enumerate}

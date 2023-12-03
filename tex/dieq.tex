@@ -877,17 +877,16 @@ $\sin{x + y'} = e^{xy'}$ -- не решено относительно $y'$.
 \begin{enumerate}
     \item Записать матрицу системы, т. е. матрицу A =
     $\begin{pmatrix}
-        a_{11} & a_{12} & ... & a_{1n} \\
-        \dots \\
-        a_{n1} & a_{n2} & ... & a_{nn} \\
+        a_{11} & \ldots & a_{1n} \\
+        \vdots & \ddots & \vdots \\
+        a_{n1} & \ldots & a_{nn} \\
     \end{pmatrix}
     \in \mathbb{R}^{n \times n}.$
-    \item Записать характеристический многочлен матрицы $\chi(\lambda) =
+    \item Записать характеристический многочлен матрицы $\det{A - \lambda E} =
     \begin{vmatrix}
-        a_{11} - \lambda & ... & ... \\
-        ... & a_{22} - \lambda & ... \\
-        \dots \\
-        ... & ... & a_{nn} - \lambda
+        a_{11} - \lambda & \ldots & a_{1n} \\
+        \vdots           & \ddots & \vdots \\
+        a_{n1}           & \ldots & a_{nn} - \lambda
     \end{vmatrix}$.
     \item Разложить на линейные множители и выписать список корней с их кратностями. При этом могут возникнуть корни следующих четырёх типов:
     \begin{gather*}
@@ -921,6 +920,213 @@ $\sin{x + y'} = e^{xy'}$ -- не решено относительно $y'$.
             \item Составить произведение $\Vec{S} \cdot e^{\lambda t}$.
             \item Фрагментами конечного решения являются векторы $Re(\Vec{S}e^{\lambda t})$ и $Im(\Vec{S}e^{\lambda t})$. Детали их получения -- на примерах.
         \end{enumerate}
+    \item Пусть $\lambda = \alpha$ (кратность $m \geq 2$).
+        \begin{enumerate}
+            \item Записать матрицу
+                $
+                    \begin{pmatrix}
+                        a_{11} - \lambda & \ldots & a_{1n} \\
+                        \vdots           & \ddots & \vdots \\
+                        a_{n1}           & \ldots & a_{nn} - \lambda
+                    \end{pmatrix}
+                $.
+            \item Посредством элементарных преобразований над строками привести матрицу к ступенчатому виду.
+            \item Записать число $N$ -- количество нулевых строк в полученной матрице. Как минимум одна нулевая строка обязана быть.
+            \item Сравнить $N$ с числом $m$:
+                \begin{enumerate}
+                    \item $N = m$: \\
+                        "Приятный" случай,
+                    \item $N < m$: \\
+                        "Неприятный" случай,
+                    \item $N > m$: \\
+                        Невозможный случай.
+                \end{enumerate}
+        \end{enumerate}
+        \begin{enumerate}
+            \item Если это невозможный случай.
+                \begin{enumerate}
+                    \item Перерешать.
+                \end{enumerate}
+            \item Если это "приятный" случай.
+                \begin{enumerate}
+                    \item Из матрицы ступенчатого вида составить однородную систему уравнений с переменными $y_1, \dots, y_n$.
+                    \item Решить систему и получить ответ вида
+                    $
+                        \begin{pmatrix} y_1 \\ \vdots \\ y_n \end{pmatrix} =
+                        C_1\begin{pmatrix} \vdots \end{pmatrix}
+                        + \dots
+                        + C_m\begin{pmatrix} \vdots \end{pmatrix}
+                    $, \\
+                    где $\begin{pmatrix} \vdots \end{pmatrix}$ -- векторы высоты $n$ с конкретными числовыми координатами.
+                    \item Фрагмент корня $\lambda$ в конечном ответе будет иметь вид
+                    $
+                        [C_1\begin{pmatrix} \vdots \end{pmatrix}
+                        + \dots
+                        + C_m\begin{pmatrix} \vdots \end{pmatrix}]e^{\lambda t}
+                    $.
+                \end{enumerate}
+            \item Если это "неприятный" случай.
+                \begin{enumerate}
+                    \item Записать выражение вида
+                    $
+                        \begin{pmatrix} x_1 \\ \vdots \\ x_n \end{pmatrix} =
+                        [\begin{pmatrix} \vdots \end{pmatrix}
+                        + \begin{pmatrix} \vdots \end{pmatrix}t
+                        + \begin{pmatrix} \vdots \end{pmatrix}t^2
+                        + \dots
+                        + \begin{pmatrix} \vdots \end{pmatrix}t^{m - N}]e^{\lambda t} \; (*)
+                    $.
+                    \item Это выражение подставить в исходную систему уравнений, записанную в матричном виде.
+                    \item Продифференцировать, раскрыть скобки, привести подобные слагаемые и приравнять соответствующие коэффициенты в правой и левой части.
+                    \item Выразить все неопределённые коэффициенты системы уравнений через какие-то $m$ из них.
+                    \item Полученное выражение подставить в $(*)$ -- это и есть фрагмент корня $\lambda$ в конечном ответе.
+                \end{enumerate}
+        \end{enumerate}
+\end{enumerate}
+
+\textbf{Пример ОСДУ1П с корнем I типа:}
+\begin{gather*}
+    \dot{x} = 5x + 6y + 3z \\
+    \dot{y} = z - x \\
+    \dot{z} = x + 2y - z
+\end{gather*}
+\begin{enumerate}
+    \item
+        \begin{gather*}
+            A =
+            \begin{pmatrix}
+                 5 &  6 &  3 \\
+                -1 &  0 &  1 \\
+                 1 &  2 & -1
+            \end{pmatrix}
+        \end{gather*}
+    \item
+        \begin{gather*}
+            \det{(A - \lambda E)} =
+            \begin{vmatrix}
+                 5 - \lambda & 6        & 3 \\
+                -1           & -\lambda & 1 \\
+                 1           & 2        & -1 - \lambda
+            \end{vmatrix} =
+        \end{gather*}
+    \item
+        \begin{gather*}
+            = (\lambda + 2)(\lambda - 2)(\lambda - 4) = 0 \\
+            \left[
+                \begin{gathered}
+                    \lambda = -2 \; \text{(кратность 1)} \\
+                    \lambda = 2 \; \text{(кратность 1)} \\
+                    \lambda = 4 \; \text{(кратность 1)}
+                \end{gathered}
+            \right.
+        \end{gather*}
+    \item
+        \begin{gather*}
+            \lambda_1 = -2 \\
+            \dots \\
+            \Vec{S_1} = \begin{pmatrix} 0 \\ 1 \\ -2 \end{pmatrix} \; \rightarrow \;
+            \Vec{S_1}e^{\lambda_1 t} = \begin{pmatrix} 0 \\ 1 \\ -2 \end{pmatrix} e^{-2t}
+        \end{gather*}
+        \begin{gather*}
+            \lambda_1 = 2 \\
+            \dots \\
+            \Vec{S_2} = \begin{pmatrix} 2 \\ -1 \\ 0 \end{pmatrix} \; \rightarrow \;
+            \Vec{S_2}e^{\lambda_2 t} = \begin{pmatrix} 2 \\ -1 \\ 0 \end{pmatrix} e^{2t}
+        \end{gather*}
+        \begin{gather*}
+            \lambda_1 = 4 \\
+            \dots \\
+            \Vec{S_3} = \begin{pmatrix} 9 \\ -2 \\ 1 \end{pmatrix} \; \rightarrow \;
+            \Vec{S_3}e^{\lambda_3 t} = \begin{pmatrix} 9 \\ -2 \\ 1 \end{pmatrix} e^{4t}
+        \end{gather*}
+    \item \textit{Ответ:}
+        \begin{gather*}
+            \begin{pmatrix} x \\ y \\ z \end{pmatrix} =
+            C_1\begin{pmatrix} 0 \\ 1 \\ -2 \end{pmatrix} e^{-2t}
+            + C_2\begin{pmatrix} 2 \\ -1 \\ 0 \end{pmatrix} e^{2t}
+            + C_3\begin{pmatrix} 9 \\ -2 \\ 1 \end{pmatrix} e^{4t}
+        \end{gather*}
+\end{enumerate}
+
+
+\textbf{Пример ОСДУ1П с корнем II типа:}
+\begin{gather*}
+    \begin{cases}
+        \dot{x} = x - 5y \\
+        \dot{y} = 2x + 3y
+    \end{cases}
+\end{gather*}
+\begin{enumerate}
+    \item
+        \begin{gather*}
+            A =
+            \begin{pmatrix}
+                1 & -5 \\
+                2 & 3
+            \end{pmatrix}
+        \end{gather*}
+    \item
+        \begin{gather*}
+            \det{(A - \lambda E)} =
+                \begin{vmatrix}
+                    1 - \lambda & -5 \\
+                    2           & 3 - \lambda
+                \end{vmatrix} =
+        \end{gather*}
+    \item
+        \begin{gather*}
+            = (\lambda - (2 + 3i))(\lambda - (2 - 3i)) \\
+            \lambda = 2 \pm 3i \; \text{(оба кратности 1)}
+        \end{gather*}
+    \item
+        \begin{enumerate}
+            \item \textit{Выберем корень $\lambda = 2 + 3i$}
+            \item \textit{Для корня $\lambda = 2 + 3i$ найдём собственный вектор}
+                \begin{gather*}
+                    \Vec{S} =
+                        \begin{pmatrix}
+                            -5 \\
+                            1 + 3i
+                        \end{pmatrix}
+                \end{gather*}
+            \item
+                \begin{align*}
+                    \Vec{S} e^{\lambda t}
+                    & = \begin{pmatrix} -5 \\ 1 + 3i \end{pmatrix} e^{(2 + 3i)t} = \\
+                    & = \begin{pmatrix} -5 + 0i \\ 1  + 3i \end{pmatrix} e^{2t + 3it} = \\
+                    & = [\begin{pmatrix} -5 \\ 1 \end{pmatrix}
+                        + i\begin{pmatrix} 0 \\ 3\end{pmatrix}] e^{3it} \cdot e^{2t} = \\
+                    & = \begin{Bmatrix} e^{i \phi} = \cos{\phi} + \sin{\phi} \end{Bmatrix} = \\
+                    & = [\begin{pmatrix} -5 \\ 1 \end{pmatrix}
+                        + i\begin{pmatrix} 0 \\ 3\end{pmatrix}](\cos{3t} + \sin{3t})e^{2t} = \\
+                    & = [\begin{pmatrix} -5 \\ 1 \end{pmatrix}\cos{3t}
+                        + i\begin{pmatrix} 0 \\ 3 \end{pmatrix}\cos{3t}
+                        + i\begin{pmatrix} -5 \\ 1 \end{pmatrix}\sin{3t}
+                        - \begin{pmatrix} 0 \\ 3\end{pmatrix}]e^{2t} = \\
+                    & = \begin{pmatrix} -5\cos{3t} \\ \cos{3t} - 3\sin{3t} \end{pmatrix} e^{2t}
+                        + i\begin{pmatrix} -5\sin{3t} \\ 3\cos{3t} + \sin{3t} \end{pmatrix} e^{2t}
+                \end{align*}
+                \begin{gather*}
+                    \Rightarrow
+                    Re(\Vec{S} e^{\lambda t}) =
+                    \begin{pmatrix}
+                        -5\cos{3t} \\
+                        \cos{3t} - 3\sin{3t}
+                    \end{pmatrix} e^{2t}, \;
+                    Im(\Vec{S} e^{\lambda t}) =
+                    \begin{pmatrix}
+                        -5\sin{3t} \\
+                        3\cos{3t} + \sin{3t}
+                    \end{pmatrix} e^{2t}
+                \end{gather*}
+        \end{enumerate}
+    \item
+        \textit{Ответ:}
+        \begin{gather*}
+            \begin{pmatrix} x \\ y \end{pmatrix} =
+            C_1\begin{pmatrix} -5\cos{3t} \\ \cos{3t} - 3\sin{3t} \end{pmatrix} e^{2t}
+            + C_2 \begin{pmatrix} -5\sin{3t} \\ 3\cos{3t} + \sin{3t} \end{pmatrix} e^{2t}
+        \end{gather*}
 \end{enumerate}
 
 
